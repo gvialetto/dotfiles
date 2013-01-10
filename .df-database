@@ -1,2 +1,3 @@
 f:xinitrc:.xinitrc
 f:i3conf:.config/i3/config
+f:i3status-cnf:.config/i3status/config
