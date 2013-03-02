@@ -13,35 +13,56 @@ Xft.hintstyle: hintslight
 
 ! Generic colors -------------------------------------------------------------
 
-*foreground:#d6d6d6
-*background:#1a1a1a
+!*foreground:#d6d6d6
+!*background:#1a1a1a
 !black
-*color0:#111111
-*color8:#262626
+!*color0:#111111
+!*color8:#262626
 !*color8:#554444
 !red
-*color1:#8c252f
-*color9:#a62e2e
+!*color1:#8c252f
+!*color9:#a62e2e
 !green
-*color2: rgb:ae/ce/91
-*color10:#c3f786
+!*color2: rgb:ae/ce/91
+!*color10:#c3f786
 !yellow
-*color3:#8700ff
-*color11:#8700ff
+!*color3:#8700ff
+!*color11:#8700ff
 !blue
-*color4:#5e99ff
-*color12:#69a0ff
+!*color4:#5e99ff
+!*color12:#69a0ff
 !magenta
-*color5:#6530ba
-*color13:#733bcc
+!*color5:#6530ba
+!*color13:#733bcc
 !cyan
 !*color6:#00c0ff
 !*color14:#24c9ff
-*color6: #5E7175
-*color14: #A3BABF
+!*color6: #5E7175
+!*color14: #A3BABF
 !white
-*color7:#333333
-*color15:#f8f8f2
+!*color7:#333333
+!*color15:#f8f8f2
+
+! Molokai theme
+*background: #101010
+*foreground: #d0d0d0
+*cursorColor: #d0d0d0
+*color0: #101010
+*color1: #960050
+*color2: #66aa11
+*color3: #c47f2c
+*color4: #30309b
+*color5: #7e40a5
+*color6: #3579a8
+*color7: #9999aa
+*color8: #303030
+*color9: #ff0090
+*color10: #80ff00
+*color11: #ffba68
+*color12: #5f5fee
+*color13: #bb88dd
+*color14: #4eb4fa
+*color15: #d0d0d0
 
 ! XTerm ----------------------------------------------------------------------
 
@@ -62,7 +83,8 @@ XTerm*foreground: White
 
 !URxvt*background: Black
 !URxvt*foreground: White
-URxvt*font: xft:Inconsolata
+!URxvt*font: xft:Inconsolata
+URxvt*font: xft:Source Code Pro for Powerline
 !URxvt*boldFont: xft:Liberation Mono Bold:pixelsize=12
 URxvt*scrollBar: false
 URxvt*scrollBar_right: false
