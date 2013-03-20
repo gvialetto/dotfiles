@@ -1,0 +1,10 @@
+[Unit]
+Description=Configure Xresources
+Before=i3.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/xrdb -merge %h/.config/Xresources
+
+[Install]
+WantedBy=mystuff.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Sets X root window background
+Before=i3.service
+
+[Service]
+Type=oneshot
+ExecStart=/home/gianni/bin/setxbg.sh %h/images/wallpapers/
+
+[Install]
+WantedBy=mystuff.target

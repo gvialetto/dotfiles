@@ -1,0 +1,13 @@
+[Unit]
+Description=Simple tiling/stacking/tabbed window manager
+Before=mystuff.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=10
+ExecStart=/usr/bin/i3
+ExecReload=/usr/bin/i3-msg reload
+
+[Install]
+WantedBy=wm.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=X keyboard configuration
+Before=i3.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/setxkbmap it
+ExecStart=/usr/bin/xmodmap %h/.config/Xmodmap
+
+[Install]
+WantedBy=mystuff.target
