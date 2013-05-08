@@ -14,13 +14,15 @@ floating_modifier $mod
 
 # application shortcuts
 mode "apps" {
-     bindsym $mod+e exec /usr/bin/emacs, mode "default"
-     bindsym $mod+m exec /usr/bin/sylpheed, mode "default"
-     bindsym $mod+Return exec /usr/bin/urxvtc, mode "default"
-     bindsym $mod+w exec /usr/bin/firefox, mode "default"
+    bindsym $mod+e exec /usr/bin/emacs, mode "default"
+    bindsym $mod+m exec /usr/bin/sylpheed, mode "default"
+    bindsym $mod+Return exec /usr/bin/urxvtc, mode "default"
+    bindsym $mod+w exec /usr/bin/firefox, mode "default"
 
-     bindsym Return mode "default"
-     bindsym Escape mode "default"
+    bindsym d exec /usr/bin/dmenu_run
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 bindsym $mod+d mode "apps"
 
@@ -55,15 +57,15 @@ bindsym $mod+Shift+Right move right
 
 # change container layout or orientation
 mode "layout" {
-     bindsym $mod+e layout stacking, mode "default"
-     bindsym $mod+q layout tabbed, mode "default"
-     bindsym $mod+w layout default, mode "default"
+    bindsym $mod+e layout stacking, mode "default"
+    bindsym $mod+q layout tabbed, mode "default"
+    bindsym $mod+w layout default, mode "default"
 
-     bindsym $mod+h split h, mode "default"
-     bindsym $mod+v split v, mode "default"
+    bindsym $mod+h split h, mode "default"
+    bindsym $mod+v split v, mode "default"
 
-     bindsym Return mode "default"
-     bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 bindsym $mod+w mode "layout"
 
