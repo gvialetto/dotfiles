@@ -19,7 +19,7 @@ mode "apps" {
     bindsym $mod+Return exec /usr/bin/urxvtc, mode "default"
     bindsym $mod+w exec /usr/bin/firefox, mode "default"
 
-    bindsym d exec /usr/bin/dmenu_run
+    bindsym d exec /usr/bin/dmenu_run, mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
