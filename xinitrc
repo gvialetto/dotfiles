@@ -4,4 +4,4 @@
 # ~/.xinitrc
 #
 
-exec ssh-agent systemd
+exec ssh-agent /usr/lib/systemd/systemd
