@@ -5,9 +5,8 @@ Before=suspend.target
 Before=i3.service
 
 [Service]
-Type=forking
 RemainAfterExit=yes
-ExecStart=/usr/bin/i3lock -d
+ExecStart=/usr/bin/i3lock -nd
 
 [Install]
 WantedBy=mystuff.target
