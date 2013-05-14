@@ -3,6 +3,7 @@
 " ===============================================================================
 
 " Basic configuration
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 set nocompatible                                " Disable VI compatibility
 set showcmd
@@ -64,12 +65,4 @@ set laststatus=2
 " PLUGINS
 " #############################################################################
 
-" Settings for vim-taglist (http://vim-taglist.sourceforge.net)
-nnoremap <silent> P :TlistToggle<CR>          " P toggles taglist
-let g:Tlist_GainFocus_On_ToggleOpen = 0       " give focus
-let g:Tlist_Exit_OnlyWindow = 1               " exit if last window open
-let g:Tlist_Use_Right_Window = 1              " open taglist to the right
-let g:Tlist_Auto_Open = 0                     " don't open by default
-let g:Tlist_Show_One_File = 0                 " show only one file
-let g:Tlist_Enable_Fold_Column = 0            " enable folding
-
+nmap <F8> :TagbarToggle<CR>
