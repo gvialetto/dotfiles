@@ -4,7 +4,8 @@ Before=i3.service
 
 [Service]
 Type=oneshot
-ExecStart=/home/gianni/bin/setxbg.sh %h/images/wallpapers/
+Environment="WALLDIR=%h/images/wallpapers" "SETTER=feh --bg-scale -f -"
+ExecStart=/bin/sh -c 'find ${WALLDIR} -type f | shuf -n1 | ${SETTER}'
 
 [Install]
 WantedBy=mystuff.target
