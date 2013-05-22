@@ -2,7 +2,6 @@
 Description=i3lock
 After=xorg.target
 Before=suspend.target
-Before=i3.service
 
 [Service]
 RemainAfterExit=yes
