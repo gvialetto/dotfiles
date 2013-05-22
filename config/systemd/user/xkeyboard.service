@@ -5,7 +5,8 @@ Before=i3.service
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/setxkbmap it
-ExecStart=/usr/bin/xmodmap %h/.config/Xmodmap
+#ExecStart=/usr/bin/xmodmap %h/.config/Xmodmap
+ExecStart=/usr/bin/xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 
 [Install]
 WantedBy=mystuff.target
