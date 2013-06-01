@@ -1,1 +1,5 @@
+# Systemd
 *.target.wants
+# Fish
+fish_history
+fishd*
