@@ -1,11 +1,10 @@
 [Unit]
-Description=i3lock
-After=xorg.target
-Before=suspend.target
+Description=i3 screen lock
+Before=i3.service
 
 [Service]
-RemainAfterExit=yes
-ExecStart=/usr/bin/i3lock -nd
+Type=forking
+ExecStart=/usr/bin/i3lock -d -c 000000 -p default
 
 [Install]
 WantedBy=mystuff.target
