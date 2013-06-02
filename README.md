@@ -1,5 +1,5 @@
-DOTFILES
-========
+BASE-CONFIG
+===========
 
-My personal collection of dotfiles.
+PersonalPersonal collection of various config files.
 
