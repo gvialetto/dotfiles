@@ -1,5 +1,5 @@
 BASE-CONFIG
 ===========
 
-PersonalPersonal collection of various config files.
+Personal collection of various config files.
 
