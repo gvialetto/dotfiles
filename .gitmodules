@@ -13,3 +13,6 @@
 [submodule "themes/greybird"]
 	path = themes/greybird
 	url = https://github.com/shimmerproject/Greybird.git
+[submodule "emacs.d/custom.d/sml"]
+	path = emacs.d/custom.d/sml
+	url = https://github.com/Bruce-Connor/smart-mode-line.git

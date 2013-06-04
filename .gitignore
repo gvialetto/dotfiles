@@ -3,3 +3,5 @@
 # Fish
 fish_history
 fishd*
+# Emacs
+emacs.d/elpa/
