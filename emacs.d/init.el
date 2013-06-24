@@ -11,7 +11,7 @@
       "http://marmalade-repo.org/packages/"))
 (package-initialize)
 ;; custom.d for custom libraries
- (add-to-list 'load-path "~/.emacs.d/custom.d/")
+(add-to-list 'load-path "~/.emacs.d/custom.d/")
 (let ((default-directory "~/.emacs.d/custom.d/"))
       (normal-top-level-add-subdirs-to-load-path))
 ;; Start from scratch buffer
@@ -19,13 +19,13 @@
 (setq initial-scratch-message "")
 ;; IDO mode
 (ido-mode t)
- 
+
 ;; ===============================================================
 ;; Theming
 ;; ===============================================================
 (load-theme 'wombat t)
 (set-face-attribute 'default nil :font "Source Code Pro-14")
- 
+
 ;; ===============================================================
 ;; Sanitize ENV
 ;; ===============================================================
@@ -39,8 +39,8 @@
 ;; Auto refresh buffers
 (global-auto-revert-mode 1)
 ;; Try to split vertically by default until things get ugly
-(setq split-height-threshold nil)
-(setq split-width-threshold 80)
+;;(setq split-height-threshold nil)
+;;(setq split-width-threshold 80)
 ;; Also auto refresh dired, but be quiet about it
 (setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-verbose nil)
@@ -66,6 +66,10 @@
 ;; SML - https://github.com/Bruce-Connor/smart-mode-line
 (require 'smart-mode-line)
 (add-hook 'after-init-hook 'sml/setup)
+(add-to-list 'sml/replacer-regexp-list '("^:PRJ:aur/" ":AUR:"))
+(add-to-list 'sml/replacer-regexp-list '("^:PRJ:euler/" ":EULER:"))
+(add-to-list 'sml/replacer-regexp-list '("^~/projects/" ":PRJ:"))
+(add-to-list 'sml/replacer-regexp-list '("^~/work/" ":WRK:"))
 ;; Quack - http://www.neilvandyke.org/quack/quack.el
 ;;(defun quack-hook ()
 (setq quack-fontify-style 'emacs
@@ -74,3 +78,21 @@
     quack-global-menu-p nil)
 (require 'quack)
 ;;(add-hook 'scheme-mode-hook 'quack-hook)
+;; PKGBUILD - https://github.com/gvialetto/pkgbuild-mode
+(autoload 'pkgbuild-mode "pkgbuild-mode/pkgbuild-mode" "PKGBUILD" t)
+(setq auto-mode-alist (append '(("/PKGBUILD$" . pkgbuild-mode)) auto-mode-alist))
+;; HASKELL - https://github.com/haskell/haskell-mode
+;; You will probably need to run 'make all' under the submodule directory
+;; for this to work...
+(setq haskell-stylish-on-save t
+  haskell-font-lock-symbols t)
+(require 'haskell-mode-autoloads)
+(defun hs-hook () 
+  (turn-on-haskell-doc-mode)
+  (turn-on-haskell-indentation)
+  (font-lock-mode)
+  (set-input-method "haskell-unicode")
+  (define-key haskell-mode-map (kbd "C-,") 'haskell-move-nested-left)
+  (define-key haskell-mode-map (kbd "C-.") 'haskell-move-nested-right)
+  (define-key haskell-mode-map (kbd "C-x C-s") 'haskell-mode-save-buffer))
+(add-hook 'haskell-mode-hook 'hs-hook)
