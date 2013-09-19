@@ -23,3 +23,6 @@
 [submodule "emacs.d/custom.d/haskell-mode"]
 	path = emacs.d/custom.d/haskell-mode
 	url = https://github.com/haskell/haskell-mode.git
+[submodule "vim/bundle/vim-airline"]
+	path = vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline

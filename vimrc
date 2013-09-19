@@ -57,12 +57,14 @@ set incsearch                                   " Incremental search
 nmap <silent> <leader>/ :nohlsearch<CR>
 
 
-" Status line (use powerline if possible...)
+" Status line (use vim-airline below if possible...)
 set laststatus=2
-" set statusline=[%F]%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 
 " #############################################################################
 " PLUGINS
 " #############################################################################
+
+" VIM-AIRLINE (https://github.com/bling/vim-airline)
+let g:airline_powerline_fonts = 1
 
 nmap <F8> :TagbarToggle<CR>
