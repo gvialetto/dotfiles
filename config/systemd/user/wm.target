@@ -2,7 +2,6 @@
 Description=Window manager target
 Wants=mystuff.target
 Requires=dbus.socket
-Requires=xorg.target
 AllowIsolate=true
 
 [Install]

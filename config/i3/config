@@ -16,7 +16,7 @@ floating_modifier $mod
 mode "apps" {
     bindsym $mod+e exec /usr/bin/emacs, mode "default"
     bindsym $mod+m exec /usr/bin/sylpheed, mode "default"
-    bindsym $mod+Return exec "/usr/bin/urxvtc -e /usr/bin/zsh", mode "default"
+    bindsym $mod+Return exec "/usr/bin/urxvt -e /usr/bin/zsh", mode "default"
     bindsym $mod+w exec /usr/bin/firefox, mode "default"
 
     bindsym d exec /usr/bin/dmenu_run, mode "default"
