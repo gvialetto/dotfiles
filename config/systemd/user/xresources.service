@@ -1,6 +1,7 @@
 [Unit]
 Description=Configure Xresources
 Before=i3.service
+After=xorg.target
 
 [Service]
 Type=oneshot

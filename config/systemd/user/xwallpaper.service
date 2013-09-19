@@ -1,6 +1,7 @@
 [Unit]
 Description=Sets X root window background
 Before=i3.service
+After=xorg.target
 
 [Service]
 Type=oneshot

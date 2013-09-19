@@ -1,5 +1,6 @@
 [Unit]
 Description=Redshift Daemon
+After=xorg.target
 
 [Service]
 ExecStart=/usr/bin/redshift -l 45.61:8.9

@@ -1,6 +1,7 @@
 [Unit]
 Description=X keyboard configuration
 Before=i3.service
+After=xorg.target
 
 [Service]
 Type=oneshot
