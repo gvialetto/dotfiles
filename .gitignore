@@ -5,3 +5,6 @@ fish_history
 fishd*
 # Emacs
 emacs.d/elpa/
+emacs.d/tramp
+# Vim
+vim/.netrwhist
