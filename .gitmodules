@@ -26,3 +26,6 @@
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
+[submodule "pkgbuild-mode-original"]
+	path = emacs.d/custom.d/pkgbuild-mode
+	url = https://github.com/juergenhoetzel/pkgbuild-mode.git
