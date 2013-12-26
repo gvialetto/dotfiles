@@ -4,7 +4,7 @@ general {
         interval = 5
 }
 
-order = "ethernet enp3s0"
+order = "ethernet eth0"
 order += "cpu_temperature 0"
 order += "time"
 
@@ -13,7 +13,7 @@ wireless wlan0 {
         format_down = "W: down"
 }
 
-ethernet enp3s0 {
+ethernet eth0 {
     format_up = "E: %ip (%speed)"
 	format_down = "E: down"
 }
