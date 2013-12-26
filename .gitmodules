@@ -16,16 +16,12 @@
 [submodule "emacs.d/custom.d/sml"]
 	path = emacs.d/custom.d/sml
 	url = https://github.com/Bruce-Connor/smart-mode-line.git
-[submodule "emacs.d/custom.d/pkgbuild-mode"]
-	path = emacs.d/custom.d/pkgbuild-mode
-	url = https://github.com/gvialetto/pkgbuild-mode.git
-	branch = new-master
 [submodule "emacs.d/custom.d/haskell-mode"]
 	path = emacs.d/custom.d/haskell-mode
 	url = https://github.com/haskell/haskell-mode.git
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
-[submodule "pkgbuild-mode-original"]
+[submodule "emacs.d/custom.d/pkgbuild-mode"]
 	path = emacs.d/custom.d/pkgbuild-mode
 	url = https://github.com/juergenhoetzel/pkgbuild-mode.git
