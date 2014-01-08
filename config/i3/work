@@ -14,8 +14,6 @@ floating_modifier $mod
 
 # application shortcuts
 mode "apps" {
-    bindsym $mod+e exec /usr/bin/emacs, mode "default"
-    bindsym $mod+m exec /usr/bin/sylpheed, mode "default"
     bindsym $mod+Return exec /usr/bin/urxvtc, mode "default"
     bindsym $mod+w exec /usr/bin/firefox, mode "default"
 
@@ -188,7 +186,7 @@ bindsym $mod+Control+r restart
 bindsym $mod+Control+q exit
 
 # lock screen
-bindsym $mod+l exec "/usr/bin/i3lock -d -i `find ~/images/lock/ -name '*.png'|shuf -n1`"
+bindsym $mod+l exec "/usr/bin/i3lock -d -i ~/.config/wallpapers/lock.png"
 # suspend system
 #bindsym $mod+z exec "/usr/bin/i3lock -i `find ~/images/lock/ -name '*.png'|shuf -n1` && sudo pm-suspend"
 # hybernate system
@@ -199,12 +197,13 @@ bindsym $mod+l exec "/usr/bin/i3lock -d -i `find ~/images/lock/ -name '*.png'|sh
 # STYLING & BAR
 # -----------------------------------------------------------------------------
 new_window 1pixel
+hide_edge_borders both
 
-client.background		#1a1a1a
-client.focused			#1793D0    #1793D0    #FFFFFF
-client.focused_inactive		#333333    #333333    #999999
-client.unfocused		#333333    #333333    #999999
-client.urgent			#FF0000    #8C5665    #FF0000
+client.background       #1a1a1a
+client.focused          #1793D0    #1793D0    #FFFFFF
+client.focused_inactive #333333    #333333    #999999
+client.unfocused        #333333    #333333    #999999
+client.urgent           #FF0000    #8C5665    #FF0000
 
 bar {
     colors {
@@ -218,6 +217,8 @@ bar {
     }
 
     status_command i3status
+    mode hide
+    tray_output none
 }
 
 
