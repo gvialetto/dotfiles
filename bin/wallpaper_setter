@@ -1,0 +1,10 @@
+#! /bin/sh
+WALLDIR=/home/gianni/images/wallpapers
+SETTER='feh --bg-scale -f -'
+
+if [ ! -n "$DISPLAY" ]; then
+    # No point in doing otherwise, this is run by cron.
+    exit 0
+fi
+
+find ${WALLDIR} -type f | shuf -n1 | ${SETTER}
