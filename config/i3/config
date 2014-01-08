@@ -14,9 +14,9 @@ floating_modifier $mod
 
 # application shortcuts
 mode "apps" {
-    bindsym $mod+e exec /usr/bin/emacs, mode "default"
-    bindsym $mod+m exec /usr/bin/sylpheed, mode "default"
-    bindsym $mod+Return exec "/usr/bin/urxvt -e /usr/bin/zsh", mode "default"
+    bindsym $mod+e exec /usr/bin/subl3, mode "default"
+    bindsym $mod+m exec /usr/bin/thunderbird, mode "default"
+    bindsym $mod+Return exec "/usr/bin/st -e zsh", mode "default"
     bindsym $mod+w exec /usr/bin/firefox, mode "default"
 
     bindsym d exec /usr/bin/dmenu_run, mode "default"
@@ -198,13 +198,14 @@ bindsym $mod+z exec "/usr/bin/i3lock -i `find ~/images/lock/ -name '*.png'|shuf 
 # -----------------------------------------------------------------------------
 # STYLING & BAR
 # -----------------------------------------------------------------------------
-new_window		1pixel
+new_window      1pixel
+hide_edge_borders both
 
-client.background		#1a1a1a
-client.focused			#1793D0    #1793D0    #FFFFFF
-client.focused_inactive		#333333    #333333    #999999
-client.unfocused		#333333    #333333    #999999
-client.urgent			#FF0000    #8C5665    #FF0000
+client.background       #1a1a1a
+client.focused          #1793D0    #1793D0    #FFFFFF
+client.focused_inactive #333333    #333333    #999999
+client.unfocused        #333333    #333333    #999999
+client.urgent           #FF0000    #8C5665    #FF0000
 
 bar {
     colors {
@@ -218,6 +219,8 @@ bar {
     }
 
     status_command i3status
+    mode hide
+    tray_output none
 }
 
 
