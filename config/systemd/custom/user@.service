@@ -1,5 +1,0 @@
-.include /usr/lib/systemd/system/user@.service
-[Service]
-Environment=DISPLAY=:0
-Environment=XDG_RUNTIME_DIR=/run/user/$I
-TimeoutStopSec=2

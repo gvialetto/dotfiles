@@ -1,9 +1,0 @@
-[Unit]
-Description=Sets X root window background
-
-[Timer]
-OnUnitInactiveSec=900
-Unit=xwallpaper.service
-
-[Install]
-WantedBy=mystuff.target

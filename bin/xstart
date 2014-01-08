@@ -1,5 +1,0 @@
-#!/bin/sh
-# X session startup
-
-systemctl --user start mystuff.target
-/usr/bin/i3

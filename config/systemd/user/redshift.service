@@ -1,8 +1,0 @@
-[Unit]
-Description=Redshift Daemon
-
-[Service]
-ExecStart=/usr/bin/redshift -l 45.61:8.9
-
-[Install]
-WantedBy=mystuff.target
