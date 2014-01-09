@@ -1,10 +1,30 @@
-#! /bin/sh
+#! /bin/bash
+# Set the X wallpaper
+usage() { 
+	echo "Usage: $0 [-d <wallpapers directory>] [-s <setter command>]" 1>&2;
+	exit 1; 
+}
+
+# First thing, check if $DISPLAY is set. Otherwise, bail out.
+if [ ! -n "$DISPLAY" ]; then
+	echo "\$DISPLAY is not set. What do ya want?"
+    exit 1
+fi
+
 WALLDIR=/home/gianni/images/wallpapers
 SETTER='feh --bg-scale -f -'
-
-if [ ! -n "$DISPLAY" ]; then
-    # No point in doing otherwise, this is run by cron.
-    exit 0
-fi
+while getopts "d:s:" opt; do
+    case "${opt}" in
+        d)
+            WALLDIR=${OPTARG}
+            ;;
+        s)
+            SETTER=${OPTARG}
+            ;;
+        *)
+            usage
+            ;;
+    esac
+done
 
 find ${WALLDIR} -type f | shuf -n1 | ${SETTER}
