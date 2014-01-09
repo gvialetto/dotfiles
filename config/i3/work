@@ -3,7 +3,7 @@
 set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
-font -*-liberation mono-bold-r-*-*-13-*-*-*-*-*-*-*
+font pango:Liberation Mono Bold 13
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -14,10 +14,11 @@ floating_modifier $mod
 
 # application shortcuts
 mode "apps" {
+	bindsym $mod+e exec /usr/bin/subl3, mode "default"
     bindsym $mod+Return exec /usr/bin/urxvtc, mode "default"
     bindsym $mod+w exec /usr/bin/firefox, mode "default"
 
-    bindsym d exec /usr/bin/dmenu_run
+    bindsym d exec /usr/bin/dmenu_run, mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -186,11 +187,11 @@ bindsym $mod+Control+r restart
 bindsym $mod+Control+q exit
 
 # lock screen
-bindsym $mod+l exec "/usr/bin/i3lock -d -i ~/.config/wallpapers/lock.png"
+bindsym $mod+l exec "/usr/bin/i3lock -d -c 000000"
 # suspend system
-#bindsym $mod+z exec "/usr/bin/i3lock -i `find ~/images/lock/ -name '*.png'|shuf -n1` && sudo pm-suspend"
+#bindsym $mod+z exec "/usr/bin/i3lock -c 000000 && sudo pm-suspend"
 # hybernate system
-#bindsym $mod+Shift+X exec "/usr/bin/i3lock -i `find ~/images/lock/|shuf -n1` && sudo pm-hibernate"
+#bindsym $mod+Shift+X exec "/usr/bin/i3lock -c 000000 && sudo pm-hibernate"
 
 
 # -----------------------------------------------------------------------------
