@@ -7,9 +7,6 @@
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
-[submodule "vim/bundle/tabular"]
-	path = vim/bundle/tabular
-	url = https://github.com/godlygeek/tabular.git
 [submodule "themes/greybird"]
 	path = themes/greybird
 	url = https://github.com/shimmerproject/Greybird.git
@@ -25,3 +22,6 @@
 [submodule "emacs.d/custom.d/pkgbuild-mode"]
 	path = emacs.d/custom.d/pkgbuild-mode
 	url = https://github.com/juergenhoetzel/pkgbuild-mode.git
+[submodule "vim/bundle/vim-easy-align"]
+	path = vim/bundle/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align
