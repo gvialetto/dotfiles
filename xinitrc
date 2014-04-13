@@ -1,3 +1,3 @@
-#!/bin/sh
 
-dbus-launch $HOME/.bin/xstart
+dapper -se ~/.config/autostart
+dbus-launch i3
