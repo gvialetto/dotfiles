@@ -19,3 +19,8 @@ export PAGER=less
 export EDITOR='vim'
 export HISTIGNORE="&:ls:ll:la:l.:pwd:exit:clear:c:"
 export PATH=$PATH:$HOME/.bin
+
+if [ -d /usr/share/source-highlight ]; then
+    export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
+    export LESS=' -R '
+fi

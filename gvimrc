@@ -11,6 +11,6 @@ nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
 nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
 
 " Theme
-set guifont=Source\ Code\ Pro\ for\ Powerline\ 12
+set guifont=Hermit\ 15
 colorscheme molokai
 
