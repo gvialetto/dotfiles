@@ -15,7 +15,7 @@ floating_modifier $mod
 # application shortcuts
 mode "apps" {
     bindsym $mod+e exec /usr/bin/subl3, mode "default"
-    bindsym $mod+Return exec "/usr/bin/urxvt -e zsh", mode "default"
+    bindsym $mod+Return exec "/usr/bin/urxvtc -e zsh", mode "default"
     bindsym $mod+w exec /usr/bin/chromium, mode "default"
 
     bindsym d exec /usr/bin/dmenu_run, mode "default"
