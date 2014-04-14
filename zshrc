@@ -4,7 +4,7 @@ ZSH_THEME="gvialetto"
 # CASE_SENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="false"
-plugins=(git mercurial github gitignore.io aliases)
+plugins=(git mercurial github gitignore.io aliases zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # --- exported ENV
