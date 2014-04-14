@@ -1,13 +1,11 @@
-# --- OH MY ZSH CONFIGURATION
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="gvialetto"
-# CASE_SENSITIVE="true"
-DISABLE_AUTO_UPDATE="true"
-COMPLETION_WAITING_DOTS="false"
+ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
+ZSH_THEME=gvialetto
+DISABLE_AUTO_UPDATE=true
+COMPLETION_WAITING_DOTS=false
 plugins=(git mercurial github gitignore.io aliases zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
-# --- exported ENV
 if [ -f "${HOME}/.gpg-agent-info" ]; then
     . "${HOME}/.gpg-agent-info"
     export GPG_AGENT_INFO
