@@ -3,7 +3,7 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 ZSH_THEME=gvialetto
 DISABLE_AUTO_UPDATE=true
 COMPLETION_WAITING_DOTS=false
-plugins=(git mercurial github fasd gitignore.io aliases zsh-syntax-highlighting)
+plugins=(git mercurial github fasd gitignore aliases zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 if [ -f "${HOME}/.gpg-agent-info" ]; then
