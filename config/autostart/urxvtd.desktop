@@ -1,5 +1,5 @@
 [Desktop Entry]
 Type=Application
-TryExec=numlockx
+TryExec=urxvtd
 Exec=urxvtd -q -o
 Name=Urxvtd
