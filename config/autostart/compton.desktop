@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+TryExec=compton
+Exec=compton --config ~/.config/compton.conf
+Name=Compositor
