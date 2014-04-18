@@ -23,20 +23,13 @@
 
 ! URxvt  ---------------------------------------------------------------------
 
-URxvt*font: xft:Hermit:Medium:size=12
-URxvt*boldFont: xft:Hermit:Bold:size=12:style=medium
-URxvt*italicFont: xft:Hermit:Medium:size=12:style=medium
-URxvt*boldItalicFont: xft:Hermit:Bold:size=12:style=medium
+URxvt*font: xft:Hermit:Medium:size=16
+URxvt*boldFont: xft:Hermit:Bold:size=16:style=medium
+URxvt*italicFont: xft:Hermit:Medium:size=16:style=medium
+URxvt*boldItalicFont: xft:Hermit:Bold:size=16:style=medium
 URxvt*scrollBar: false
 URxvt*scrollBar_right: false
-URxvt.perl-ext-common: default,matcher
-URxvt.urlLauncher: firefox
-URxvt.matcher.button: 1
-URxvt*matcher.pattern.1: \\b(mailto|http|https|ftp|file):[/]*[\\w-]\\.[\\w./?&@#-]*[\\w/-]
-URxvt*matcher.pattern.2: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 
 URxvt.buffered: true
 URxvt.cursorColor: #5e99ff
 URxvt.cursorBlink: true
-URxvt.title: Urxvt
-URxvt.underlineURLs: true
