@@ -215,7 +215,7 @@ bar {
         urgent_workspace   #FF0000 #000000 #FF0000
     }
 
-    status_command i3status
+    status_command i3status -c ~/.config/i3/status
     mode hide
     tray_output none
 }
