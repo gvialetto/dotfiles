@@ -6,7 +6,7 @@
 ;; ===============================================================
 ;; enable marmalade repo
 (require 'package)
-(add-to-list 'package-archives 
+(add-to-list 'package-archives
     '("marmalade" .
       "http://marmalade-repo.org/packages/"))
 (package-initialize)
@@ -38,9 +38,6 @@
 (scroll-bar-mode -1)
 ;; Auto refresh buffers
 (global-auto-revert-mode 1)
-;; Try to split vertically by default until things get ugly
-;;(setq split-height-threshold nil)
-;;(setq split-width-threshold 80)
 ;; Also auto refresh dired, but be quiet about it
 (setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-verbose nil)
@@ -48,15 +45,12 @@
 (setq vc-follow-symlinks t)
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq confirm-nonexistent-file-or-buffer nil)
-(defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
-  "Prevent annoying \"Active processes exist\" query when you quit Emacs."
-  (flet ((process-list ())) ad-do-it))
 ;; Remove text in active region if inserting text
 (delete-selection-mode 1)
 ;; Enable auto-fill-mode
 (set-fill-column 79)
 (auto-fill-mode t)
- 
+
 ;; ===============================================================
 ;; Extensions
 ;; ===============================================================
@@ -88,7 +82,7 @@
 (setq haskell-stylish-on-save t
   haskell-font-lock-symbols t)
 (require 'haskell-mode-autoloads)
-(defun hs-hook () 
+(defun hs-hook ()
   (turn-on-haskell-doc-mode)
   (turn-on-haskell-indentation)
   (font-lock-mode)
