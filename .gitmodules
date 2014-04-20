@@ -34,3 +34,6 @@
 [submodule "emacs.d/custom.d/dash.el"]
 	path = emacs.d/custom.d/dash
 	url = https://github.com/magnars/dash.el.git
+[submodule "emacs.d/custom.d/rainbow-delimiters"]
+	path = emacs.d/custom.d/rainbow-delimiters
+	url = https://github.com/jlr/rainbow-delimiters.git

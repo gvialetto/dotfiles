@@ -96,3 +96,7 @@
   (define-key haskell-mode-map (kbd "C-.") 'haskell-move-nested-right)
   (define-key haskell-mode-map (kbd "C-x C-s") 'haskell-mode-save-buffer))
 (add-hook 'haskell-mode-hook 'hs-hook)
+;; RAINBOW DELIMITERS - http://www.emacswiki.org/emacs/RainbowDelimiters
+(require 'rainbow-delimiters)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
