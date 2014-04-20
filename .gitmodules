@@ -31,3 +31,6 @@
 [submodule "vim/bundle/molokai"]
 	path = vim/bundle/molokai
 	url = https://github.com/tomasr/molokai.git
+[submodule "emacs.d/custom.d/dash.el"]
+	path = emacs.d/custom.d/dash.el
+	url = https://github.com/magnars/dash.el.git
