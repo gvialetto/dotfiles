@@ -11,8 +11,8 @@
       "http://marmalade-repo.org/packages/"))
 (package-initialize)
 ;; custom.d for custom libraries
-(add-to-list 'load-path "~/.emacs.d/custom.d/")
 (let ((default-directory "~/.emacs.d/custom.d/"))
+      (normal-top-level-add-to-load-path '("."))
       (normal-top-level-add-subdirs-to-load-path))
 ;; Start from scratch buffer
 (setq initial-buffer-choice t)
