@@ -65,11 +65,12 @@
 (add-hook 'scheme-mode-hook 'enable-paredit-mode)
 ;; SML - https://github.com/Bruce-Connor/smart-mode-line
 (require 'smart-mode-line)
+(setq sml/theme 'dark)
 (add-hook 'after-init-hook 'sml/setup)
 (add-to-list 'sml/replacer-regexp-list '("^:PRJ:aur/" ":AUR:"))
 (add-to-list 'sml/replacer-regexp-list '("^:PRJ:euler/" ":EULER:"))
-(add-to-list 'sml/replacer-regexp-list '("^~/projects/" ":PRJ:"))
-(add-to-list 'sml/replacer-regexp-list '("^~/work/" ":WRK:"))
+(add-to-list 'sml/replacer-regexp-list '("^~/Projects/" ":PRJ:"))
+(add-to-list 'sml/replacer-regexp-list '("^~/Work/" ":WRK:"))
 ;; Quack - http://www.neilvandyke.org/quack/quack.el
 ;;(defun quack-hook ()
 (setq quack-fontify-style 'emacs
