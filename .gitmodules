@@ -37,3 +37,15 @@
 [submodule "emacs.d/plugins/smart-mode-line"]
 	path = emacs.d/plugins/smart-mode-line
 	url = https://github.com/Bruce-Connor/smart-mode-line.git
+[submodule "emacs.d/modes/clojure-mode"]
+	path = emacs.d/modes/clojure-mode
+	url = https://github.com/clojure-emacs/clojure-mode.git
+[submodule "emacs.d/themes/color-theme-molokai"]
+	path = emacs.d/themes/color-theme-molokai
+	url = https://github.com/alloy-d/color-theme-molokai.git
+[submodule "emacs.d/themes/molokai"]
+	path = emacs.d/themes/molokai
+	url = https://github.com/alloy-d/color-theme-molokai.git
+[submodule "emacs.d/themes/cyberpunk"]
+	path = emacs.d/themes/cyberpunk
+	url = https://github.com/n3mo/cyberpunk-theme.el
