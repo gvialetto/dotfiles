@@ -56,7 +56,6 @@
 ;; ===============================================================
 ;; Paredit - http://mumble.net/~campbell/emacs/paredit.el
 (autoload 'enable-paredit-mode "paredit" t)
-(add-hook 'scheme-mode-hook 'enable-paredit-mode)
 ;; SML - https://github.com/Bruce-Connor/smart-mode-line
 (require 'smart-mode-line)
 (setq sml/theme 'dark)
@@ -65,14 +64,9 @@
 (add-to-list 'sml/replacer-regexp-list '("^:PRJ:euler/" ":EULER:"))
 (add-to-list 'sml/replacer-regexp-list '("^~/Projects/" ":PRJ:"))
 (add-to-list 'sml/replacer-regexp-list '("^~/Work/" ":WRK:"))
-;; Quack - http://www.neilvandyke.org/quack/quack.el
-;;(defun quack-hook ()
-(setq quack-fontify-style 'emacs
-    quack-default-program "csi"
-    quack-newline-behavior 'newline
-    quack-global-menu-p nil)
-(require 'quack)
-;;(add-hook 'scheme-mode-hook 'quack-hook)
+;; SCHEME
+(add-hook 'scheme-mode-hook 'enable-paredit-mode)
+(require 'chicken)
 ;; PKGBUILD - https://github.com/gvialetto/pkgbuild-mode
 (autoload 'pkgbuild-mode "pkgbuild-mode/pkgbuild-mode" "PKGBUILD" t)
 (setq auto-mode-alist (append '(("/PKGBUILD$" . pkgbuild-mode)) auto-mode-alist))
