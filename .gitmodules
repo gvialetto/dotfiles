@@ -7,18 +7,9 @@
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
-[submodule "emacs.d/custom.d/sml"]
-	path = emacs.d/custom.d/sml
-	url = https://github.com/Bruce-Connor/smart-mode-line.git
-[submodule "emacs.d/custom.d/haskell-mode"]
-	path = emacs.d/custom.d/haskell-mode
-	url = https://github.com/haskell/haskell-mode.git
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
-[submodule "emacs.d/custom.d/pkgbuild-mode"]
-	path = emacs.d/custom.d/pkgbuild-mode
-	url = https://github.com/juergenhoetzel/pkgbuild-mode.git
 [submodule "vim/bundle/vim-easy-align"]
 	path = vim/bundle/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align
@@ -31,9 +22,18 @@
 [submodule "vim/bundle/molokai"]
 	path = vim/bundle/molokai
 	url = https://github.com/tomasr/molokai.git
-[submodule "emacs.d/custom.d/dash.el"]
-	path = emacs.d/custom.d/dash
+[submodule "emacs.d/plugins/dash"]
+	path = emacs.d/plugins/dash
 	url = https://github.com/magnars/dash.el.git
-[submodule "emacs.d/custom.d/rainbow-delimiters"]
-	path = emacs.d/custom.d/rainbow-delimiters
+[submodule "emacs.d/modes/haskell-mode"]
+	path = emacs.d/modes/haskell-mode
+	url = https://github.com/haskell/haskell-mode.git
+[submodule "emacs.d/plugins/rainbow-delimiters"]
+	path = emacs.d/plugins/rainbow-delimiters
 	url = https://github.com/jlr/rainbow-delimiters.git
+[submodule "emacs.d/modes/pkgbuild-mode"]
+	path = emacs.d/modes/pkgbuild-mode
+	url = https://github.com/juergenhoetzel/pkgbuild-mode.git
+[submodule "emacs.d/plugins/smart-mode-line"]
+	path = emacs.d/plugins/smart-mode-line
+	url = https://github.com/Bruce-Connor/smart-mode-line.git

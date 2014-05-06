@@ -10,8 +10,11 @@
     '("marmalade" .
       "http://marmalade-repo.org/packages/"))
 (package-initialize)
-;; custom.d for custom libraries
-(let ((default-directory "~/.emacs.d/custom.d/"))
+;; custom plugins/modes
+(let ((default-directory "~/.emacs.d/plugins/"))
+      (normal-top-level-add-to-load-path '("."))
+      (normal-top-level-add-subdirs-to-load-path))
+(let ((default-directory "~/.emacs.d/modes/"))
       (normal-top-level-add-to-load-path '("."))
       (normal-top-level-add-subdirs-to-load-path))
 ;; Start from scratch buffer
