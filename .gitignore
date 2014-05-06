@@ -6,5 +6,6 @@ fishd*
 # Emacs
 emacs.d/elpa/
 emacs.d/tramp
+emacs.d/auto-save*
 # Vim
 vim/.netrwhist
