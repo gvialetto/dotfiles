@@ -91,4 +91,6 @@
 ;; RAINBOW DELIMITERS - http://www.emacswiki.org/emacs/RainbowDelimiters
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-
+;; CLOJURE - https://github.com/clojure-emacs/clojure-mode
+(require 'clojure-mode)
+(add-hook 'clojure-mode-hook 'enable-paredit-mode)
