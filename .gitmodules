@@ -22,24 +22,6 @@
 [submodule "vim/bundle/molokai"]
 	path = vim/bundle/molokai
 	url = https://github.com/tomasr/molokai.git
-[submodule "emacs.d/plugins/dash"]
-	path = emacs.d/plugins/dash
-	url = https://github.com/magnars/dash.el.git
-[submodule "emacs.d/modes/haskell-mode"]
-	path = emacs.d/modes/haskell-mode
-	url = https://github.com/haskell/haskell-mode.git
-[submodule "emacs.d/plugins/rainbow-delimiters"]
-	path = emacs.d/plugins/rainbow-delimiters
-	url = https://github.com/jlr/rainbow-delimiters.git
-[submodule "emacs.d/modes/pkgbuild-mode"]
-	path = emacs.d/modes/pkgbuild-mode
-	url = https://github.com/juergenhoetzel/pkgbuild-mode.git
-[submodule "emacs.d/plugins/smart-mode-line"]
-	path = emacs.d/plugins/smart-mode-line
-	url = https://github.com/Bruce-Connor/smart-mode-line.git
-[submodule "emacs.d/modes/clojure-mode"]
-	path = emacs.d/modes/clojure-mode
-	url = https://github.com/clojure-emacs/clojure-mode.git
 [submodule "emacs.d/themes/color-theme-molokai"]
 	path = emacs.d/themes/color-theme-molokai
 	url = https://github.com/alloy-d/color-theme-molokai.git
