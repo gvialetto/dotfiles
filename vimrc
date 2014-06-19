@@ -2,10 +2,26 @@
 " VIM configuration file
 " ===============================================================================
 
+" Initialize vundle
+set nocompatible
+filetype off
+set rtp+=~/.base-config/vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" other plugins
+Plugin 'tomasr/molokai'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-fugitive'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+
 " Basic configuration
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-set nocompatible                                " Disable VI compatibility
 set showcmd
 let mapleader=","                               " Change mapleader
 inoremap ii <Esc>
@@ -43,6 +59,7 @@ filetype plugin indent on
 set expandtab                                   " Expand tabs to spaces
 autocmd FileType make set noexpandtab           " ...but not in make
 autocmd FileType automake set noexpandtab       " ...and not automake
+autocmd FileType fstab set noexpandtab          " ...and not fstab
 set shiftwidth=4
 set tabstop=4
 

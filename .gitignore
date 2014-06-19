@@ -10,3 +10,5 @@ emacs.d/tramp
 emacs.d/auto-save*
 # Vim
 vim/.netrwhist
+vim/bundle/*
+!vim/bundle/Vundle.vim
