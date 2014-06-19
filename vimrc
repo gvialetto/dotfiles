@@ -21,6 +21,11 @@ set title                                       " Change terminal title
 set visualbell                                  " Don't beep
 set noerrorbells                                " Again, don't beep
 
+" Sudo save
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command Wq :execute ':W' | :q
+command WQ :Wq
+
 " I don't want to use the arrows to move around
 map <up> <nop>
 map <down> <nop>
