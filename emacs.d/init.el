@@ -16,7 +16,7 @@
 (setq auto-save-default nil)
 ;; Theming
 (load-theme 'wombat t)
-(set-face-attribute 'default nil :font "Source Code Pro-14")
+(cond (window-system (set-face-attribute 'default nil :font "Source Code Pro-14")))
 (column-number-mode t)
 ;; Auto refresh buffers
 (global-auto-revert-mode 1)
@@ -31,6 +31,13 @@
 (auto-fill-mode t)
 ;; Enable IDO mode
 (ido-mode t)
+(ido-everywhere t)
+;; Whitespace mode configuration
+(setq whitespace-style '(spaces tabs space-mark tab-mark))
+;; Delete trailing whitespace when saving
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;; Run the garbage collector more sparingly
+(setq gc-cons-threshold 20000000)
 
 ;; ===============================================================
 ;; Packages
@@ -54,7 +61,11 @@
     pkgbuild-mode
     undo-tree
     magit
-    smartparens))
+    smartparens
+    ido-ubiquitous
+    flx-ido
+    multiple-cursors
+    cider))
 (defun has-package-not-installed ()
   (loop for p in packages-list
         when (not (package-installed-p p)) do (return t)
@@ -70,14 +81,14 @@
       (package-install p))))
 
 ;; Macro to evaluate package configuration after it is loaded
-(defmacro after (mode &rest body)
+(defmacro my/after (mode &rest body)
   "`eval-after-load' MODE evaluate BODY."
   (declare (indent defun))
   `(eval-after-load ,mode
      '(progn ,@body)))
 
-;; SMART MODE LINE 
-(after 'smart-mode-line-autoloads
+;; SMART MODE LINE
+(my/after 'smart-mode-line-autoloads
   (require 'smart-mode-line)
   (setq sml/theme 'dark)
   (add-hook 'after-init-hook 'sml/setup)
@@ -87,16 +98,21 @@
   (add-to-list 'sml/replacer-regexp-list '("^~/Work/" ":WRK:")))
 
 ;; SMARTPARENS + RAINBOW DELIMITERS
-(after 'smartparens-autoloads
+(my/after 'smartparens-autoloads
+  (require 'smartparens-config)
   (smartparens-global-mode t)
-  (show-smartparens-global-mode t))
-(after 'rainbow-delimiters-autoloads
+  (show-smartparens-global-mode t)
+  (sp-pair "(" ")" :wrap "M-(")
+  (add-hook 'scheme-mode-hook 'smartparens-strict-mode)
+  (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
+  (add-hook 'cider-repl-mode-hook 'smartparens-strict-mode))
+(my/after 'rainbow-delimiters-autoloads
   (require 'rainbow-delimiters)
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
   (require 'color)
-  (cl-loop 
-   for index from 1 to rainbow-delimiters-max-face-count
-   do
+  (loop for index
+	from 1 to rainbow-delimiters-max-face-count
+	do
    (let ((face (intern (format "rainbow-delimiters-depth-%d-face" index))))
      (cl-callf color-saturate-name (face-foreground face) 30)))
   (require 'paren) ; show-paren-mismatch is defined in paren.el
@@ -105,7 +121,7 @@
 		      :inherit 'show-paren-mismatch))
 
 ;; HASKELL
-(after 'haskell-mode-autoloads
+(my/after 'haskell-mode-autoloads
   (setq haskell-stylish-on-save t
 	haskell-font-lock-symbols t)
   (defun hs-hook ()
@@ -117,3 +133,8 @@
     (define-key haskell-mode-map (kbd "C-.") 'haskell-move-nested-right)
     (define-key haskell-mode-map (kbd "C-x C-s") 'haskell-mode-save-buffer))
   (add-hook 'haskell-mode-hook 'hs-hook))
+
+;; FLEX IDO
+(my/after 'flx-ido-mode-autoloads
+  (flx-ido-mode t)
+  (setq ido-use-faces nil))
