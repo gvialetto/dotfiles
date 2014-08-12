@@ -1,9 +1,11 @@
 # i3 config file (v4)
 
 set $mod Mod4
+set $font Source Code Pro
+set $dmenu_cmd /usr/bin/dmenu_run -i -fn "$font-14"
 
 # font for window titles. ISO 10646 = Unicode
-font pango:Liberation Mono Bold 13
+font pango:$font Bold 14
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -15,10 +17,10 @@ floating_modifier $mod
 # application shortcuts
 mode "apps" {
     bindsym $mod+e exec /usr/bin/subl3, mode "default"
-    bindsym $mod+Return exec "/usr/bin/urxvt", mode "default"
+    bindsym $mod+Return exec "/usr/bin/urxvtc", mode "default"
     bindsym $mod+w exec /usr/bin/chromium, mode "default"
 
-    bindsym d exec /usr/bin/dmenu_run, mode "default"
+    bindsym d exec $dmenu_cmd, mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -28,7 +30,20 @@ bindsym $mod+d mode "apps"
 # kill focused window
 bindsym $mod+q kill
 # start dmenu
-bindsym $mod+Shift+D exec /usr/bin/dmenu_run
+bindsym $mod+Shift+D exec $dmenu_cmd
+
+# -----------------------------------------------------------------------------
+# RAPID SWITCHING
+# -----------------------------------------------------------------------------
+set $qs_cmd quickswitch.py -d "dmenu -b -i -l 20 -fn '$font-14'"
+
+mode "switch" {
+    bindsym $mod+a exec $qs_cmd, mode "default"
+    bindsym $mod+w exec $qs_cmd -w, mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+s mode "switch"
 
 # -----------------------------------------------------------------------------
 # WINDOWS MANAGEMENT
