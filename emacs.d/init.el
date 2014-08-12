@@ -16,7 +16,7 @@
 (setq auto-save-default nil)
 ;; Theming
 (load-theme 'wombat t)
-(cond (window-system (set-face-attribute 'default nil :font "Source Code Pro-14")))
+(cond (window-system (set-face-attribute 'default nil :font "Source Code Pro-16")))
 (column-number-mode t)
 ;; Auto refresh buffers
 (global-auto-revert-mode 1)
@@ -65,7 +65,9 @@
     ido-ubiquitous
     flx-ido
     multiple-cursors
-    cider))
+    cider
+    flycheck
+    rust-mode))
 (defun has-package-not-installed ()
   (loop for p in packages-list
         when (not (package-installed-p p)) do (return t)
@@ -138,3 +140,7 @@
 (my/after 'flx-ido-mode-autoloads
   (flx-ido-mode t)
   (setq ido-use-faces nil))
+
+;; RUST
+(my/after 'rust-mode-autoloads
+  (add-hook 'rust-mode-hook #'flycheck-mode))
