@@ -17,7 +17,7 @@ floating_modifier $mod
 # application shortcuts
 mode "apps" {
     bindsym $mod+e exec /usr/bin/subl3, mode "default"
-    bindsym $mod+Return exec "/usr/bin/urxvtc", mode "default"
+    bindsym $mod+Return exec "/usr/bin/termite", mode "default"
     bindsym $mod+w exec /usr/bin/chromium, mode "default"
 
     bindsym d exec $dmenu_cmd, mode "default"

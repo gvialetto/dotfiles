@@ -21,3 +21,5 @@ if [ -d /usr/share/source-highlight ]; then
     export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
     export LESS=' -R '
 fi
+
+eval $(dircolors ~/.base-config/dircolors)
