@@ -1,0 +1,4 @@
+[Unit]
+Description=X login target
+Wants=display-manager.service
+AllowIsolate=yes

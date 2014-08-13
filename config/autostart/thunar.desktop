@@ -1,5 +1,0 @@
-[Desktop Entry]
-Type=Application
-TryExec=thunar
-Exec=thunar --daemon
-Name=File Manager

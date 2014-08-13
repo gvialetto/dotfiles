@@ -1,5 +1,0 @@
-[Desktop Entry]
-Type=Application
-TryExec=nitrogen
-Exec=nitrogen --restore
-Name=Wallpaper setter

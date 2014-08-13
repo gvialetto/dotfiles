@@ -1,0 +1,12 @@
+[Unit]
+Description=X keyboard settings
+Documentation=man:setxkbmap(1) man:numlockx(1)
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/setxkbmap it
+ExecStart=/usr/bin/numlockx on
+RemainAfterExit=yes
+
+[Install]
+WantedBy=xlogin.target

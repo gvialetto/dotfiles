@@ -1,0 +1,11 @@
+[Unit]
+Description=X resource setting
+Documentation=man:xrdb(1)
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/xrdb -merge ${BASECFG_DIR}/config/Xresources
+RemainAfterExit=yes
+
+[Install]
+WantedBy=xlogin.target

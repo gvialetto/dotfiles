@@ -1,5 +1,0 @@
-[Desktop Entry]
-Type=Application
-TryExec=xrdb
-Exec=xrdb -merge ~/.config/Xresources
-Name=Xrdb
