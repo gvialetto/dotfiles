@@ -1,0 +1,11 @@
+[Unit]
+Description=X screen lock
+Documentation=man:i3lock(1)
+
+[Service]
+Type=simple
+ExecStartPre=/usr/bin/xset dpms force off
+ExecStart=/usr/bin/i3lock -nc 101010
+
+[Install]
+WantedBy=xlogin.target
