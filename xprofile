@@ -1,3 +1,5 @@
 systemctl --user set-environment BASECFG_DIR=$HOME/.base-config
 systemctl --user import-environment DISPLAY
 systemctl --user start xlogin.target
+
+exec xss-lock -- i3lock -nc101010 &
