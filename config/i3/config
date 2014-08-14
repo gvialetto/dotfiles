@@ -203,9 +203,9 @@ bindsym $mod+Control+r restart
 bindsym $mod+Control+q exit
 
 # lock screen
-bindsym $mod+l exec "/usr/bin/i3lock -d -c 101010"
+bindsym $mod+l exec "systemctl --user start i3lock.service"
 # suspend system
-bindsym $mod+z exec "/usr/bin/i3lock -c 101010 && systemctl suspend"
+bindsym $mod+z exec "systemctl suspend"
 
 # -----------------------------------------------------------------------------
 # STYLING & BAR
