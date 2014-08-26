@@ -1,0 +1,10 @@
+[Unit]
+Description=Start getmail
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/getmail --getmaildir %h/.mail/getmail
+RemainAfterExit=yes
+
+[Install]
+WantedBy=xlogin.target
