@@ -4,6 +4,7 @@
 fish_history
 fishd*
 # Emacs
+emacs.d/places
 emacs.d/elpa/
 emacs.d/packages/
 emacs.d/tramp
