@@ -52,6 +52,7 @@
 ;; Package list
 (defvar packages-list
   '(rainbow-delimiters
+    better-defaults
     haskell-mode
     clojure-mode
     cursor-chg
