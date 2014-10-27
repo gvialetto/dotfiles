@@ -3,7 +3,6 @@
 ! Base16 Monokai
 ! Scheme: Wimer Hazenberg (http://www.monokai.nl)
 
-#define base10 #121212
 #define base00 #272822
 #define base01 #383830
 #define base02 #49483e
@@ -14,6 +13,7 @@
 #define base07 #f9f8f5
 #define base08 #f92672
 #define base09 #fd971f
+#define base10 #121212
 #define base0A #f4bf75
 #define base0B #a6e22e
 #define base0C #a1efe4
@@ -24,7 +24,7 @@
 *.foreground:   base05
 *.background:   base10
 *.cursorColor:  base05
-*.color0:       base00
+*.color0:       base10
 *.color1:       base08
 *.color2:       base0B
 *.color3:       base0A
@@ -49,12 +49,18 @@
 
 ! URxvt  ---------------------------------------------------------------------
 
-URxvt*font: xft:Hermit:Medium:size=16
-URxvt*boldFont: xft:Hermit:Bold:size=16:style=medium
-URxvt*italicFont: xft:Hermit:Medium:size=16:style=medium
-URxvt*boldItalicFont: xft:Hermit:Bold:size=16:style=medium
+URxvt*font: xft:Hermit:Medium:size=12:style=medium:antialias=false
+URxvt*boldFont: xft:Hermit:Bold:size=12:style=medium:antialias=false
+URxvt*italicFont: xft:Hermit:Italic:size=12:style=medium:antialias=false
+URxvt*boldItalicFont: xft:Hermit:Bold:size=12:style=medium:antialias=false
+URxvt.perl-ext:
+URxvt.perl-ext-common:
+URxvt.scrollstyle: plain
 URxvt*scrollBar: false
-URxvt*scrollBar_right: false
+URxvt*scrollBar_right: true
 URxvt.buffered: true
-URxvt.cursorColor: #5e99ff
+URxvt.cursorColor: base05
 URxvt.cursorBlink: true
+URxvt.letterSpace: -1
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
