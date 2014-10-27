@@ -4,11 +4,10 @@
 fish_history
 fishd*
 # Emacs
-emacs.d/places
-emacs.d/elpa/
-emacs.d/packages/
-emacs.d/tramp
-emacs.d/auto-save*
+emacs/.emacs.d/places
+emacs/.emacs.d/packages/
+emacs/.emacs.d/tramp
+emacs/.emacs.d/auto-save*
 # Vim
 vim/.netrwhist
 vim/bundle/*

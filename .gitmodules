@@ -1,12 +1,3 @@
-[submodule "emacs.d/themes/color-theme-molokai"]
-	path = emacs.d/themes/color-theme-molokai
-	url = https://github.com/alloy-d/color-theme-molokai.git
-[submodule "emacs.d/themes/molokai"]
-	path = emacs.d/themes/molokai
-	url = https://github.com/alloy-d/color-theme-molokai.git
-[submodule "emacs.d/themes/cyberpunk"]
-	path = emacs.d/themes/cyberpunk
-	url = https://github.com/n3mo/cyberpunk-theme.el
-[submodule "vim/bundle/Vundle.vim"]
-	path = vim/bundle/Vundle.vim
+[submodule "vim/.vim/bundle/Vundle.vim"]
+	path = vim/.vim/bundle/Vundle.vim
 	url = https://github.com/gmarik/Vundle.vim.git

@@ -1,2 +1,0 @@
-#!/bin/sh
-ip addr | grep 'inet ' | grep -v 127.0.0.1 | sed 's#.* \(.*\)/.*#\1#g'
