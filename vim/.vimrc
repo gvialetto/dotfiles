@@ -5,8 +5,8 @@
 " Initialize vundle
 set nocompatible
 filetype off
-set rtp+=~/.base-config/vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=~/.local/vim/bundle/Vundle.vim
+call vundle#begin('~/.local/vim/bundle')
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
