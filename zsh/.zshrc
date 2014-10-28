@@ -29,3 +29,6 @@ fi
 
 setopt nocorrectall
 
+if [[ -f ~/.config/zsh/dircolors ]] ; then
+    eval $(dircolors -b ~/.config/zsh/dircolors)
+fi
