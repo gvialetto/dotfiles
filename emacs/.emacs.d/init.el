@@ -16,7 +16,7 @@
 (setq auto-save-default nil)
 ;; Theming
 (load-theme 'wombat t)
-(cond (window-system (set-face-attribute 'default nil :font "Source Code Pro-16")))
+(cond (window-system (set-face-attribute 'default nil :font "Hermit-12")))
 (column-number-mode t)
 ;; Auto refresh buffers
 (global-auto-revert-mode 1)
