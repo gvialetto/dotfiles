@@ -83,33 +83,24 @@
     (when (not (package-installed-p p))
       (package-install p))))
 
-;; Macro to evaluate package configuration after it is loaded
-(defmacro my/after (mode &rest body)
-  "`eval-after-load' MODE evaluate BODY."
-  (declare (indent defun))
-  `(eval-after-load ,mode
-     '(progn ,@body)))
-
 ;; SMART MODE LINE
-(my/after 'smart-mode-line-autoloads
-  (require 'smart-mode-line)
+(add-hook 'after-init-hook 'sml/setup)
+(with-eval-after-load 'smart-mode-line
   (setq sml/theme 'dark)
-  (add-hook 'after-init-hook 'sml/setup)
   (add-to-list 'sml/replacer-regexp-list '("^:PRJ:aur/" ":AUR:"))
   (add-to-list 'sml/replacer-regexp-list '("^:PRJ:euler/" ":EULER:"))
   (add-to-list 'sml/replacer-regexp-list '("^~/Projects/" ":PRJ:"))
   (add-to-list 'sml/replacer-regexp-list '("^~/Work/" ":WRK:")))
 
 ;; SMARTPARENS + RAINBOW DELIMITERS
-(my/after 'smartparens-autoloads
+(with-eval-after-load 'smartparens
   (require 'smartparens-config)
   (smartparens-global-mode t)
   (show-smartparens-global-mode t)
   (sp-pair "(" ")" :wrap "M-(")
-  (add-hook 'scheme-mode-hook 'smartparens-strict-mode)
   (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
   (add-hook 'cider-repl-mode-hook 'smartparens-strict-mode))
-(my/after 'rainbow-delimiters-autoloads
+(with-eval-after-load 'rainbow-delimiters
   (require 'rainbow-delimiters)
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
   (require 'color)
@@ -124,7 +115,7 @@
 		      :inherit 'show-paren-mismatch))
 
 ;; HASKELL
-(my/after 'haskell-mode-autoloads
+(with-eval-after-load 'haskell-mode
   (setq haskell-stylish-on-save t
 	haskell-font-lock-symbols t)
   (defun hs-hook ()
@@ -138,10 +129,10 @@
   (add-hook 'haskell-mode-hook 'hs-hook))
 
 ;; FLEX IDO
-(my/after 'flx-ido-mode-autoloads
-  (flx-ido-mode t)
+(add-hook 'after-init-hook (lambda () (flx-ido-mode t)))
+(with-eval-after-load 'flx-ido-mode
   (setq ido-use-faces nil))
 
 ;; RUST
-(my/after 'rust-mode-autoloads
+(with-eval-after-load 'rust-mode
   (add-hook 'rust-mode-hook #'flycheck-mode))
