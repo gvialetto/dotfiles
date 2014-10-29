@@ -4,7 +4,7 @@ Documentation=man:compton(1)
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/compton --config ${BASECFG_DIR}/config/compton.conf
+ExecStart=/usr/bin/compton --config %h/.config/compton.conf
 
 [Install]
 WantedBy=xlogin.target
