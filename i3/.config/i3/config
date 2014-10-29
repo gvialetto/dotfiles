@@ -1,11 +1,11 @@
 # i3 config file (v4)
 
 set $mod Mod4
-set $font Source Code Pro
+set $font Hermit
 set $dmenu_cmd /usr/bin/dmenu_run -i -fn "$font-14"
 
 # font for window titles. ISO 10646 = Unicode
-font pango:$font Bold 14
+font pango:$font Bold 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -230,9 +230,8 @@ bar {
         urgent_workspace   #FF0000 #000000 #FF0000
     }
 
-    status_command i3status -c ~/.config/i3/status
+    status_command ~/.config/i3/scripts/conky
     mode hide
-    tray_output none
 }
 
 
