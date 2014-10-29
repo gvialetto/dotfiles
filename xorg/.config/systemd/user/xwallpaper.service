@@ -1,7 +1,6 @@
 [Unit]
 Description=X wallpaper setting
 Documentation=man:feh(1)
-After=xwallpaper.target
 
 [Service]
 Type=oneshot
