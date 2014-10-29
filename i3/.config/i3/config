@@ -203,7 +203,7 @@ bindsym $mod+Control+r restart
 bindsym $mod+Control+q exit
 
 # lock screen
-bindsym $mod+l exec "systemctl --user start i3lock.service"
+bindsym $mod+l exec "i3lock -ed -I 10 -c 000000"
 # suspend system
 bindsym $mod+z exec "systemctl suspend"
 
