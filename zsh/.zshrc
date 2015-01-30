@@ -28,6 +28,7 @@ if [ -d /usr/share/source-highlight ]; then
 fi
 
 setopt nocorrectall
+unsetopt share_history
 
 if [[ -f ~/.config/zsh/dircolors ]] ; then
     eval $(dircolors -b ~/.config/zsh/dircolors)
