@@ -49,10 +49,10 @@
 
 ! URxvt  ---------------------------------------------------------------------
 
-URxvt*font: xft:Hermit:Medium:size=12:style=medium:antialias=false
-URxvt*boldFont: xft:Hermit:Bold:size=12:style=medium:antialias=false
-URxvt*italicFont: xft:Hermit:Italic:size=12:style=medium:antialias=false
-URxvt*boldItalicFont: xft:Hermit:Bold:size=12:style=medium:antialias=false
+URxvt*font: -*-ttyp0-medium-r-normal-*-16-*-*-*-*-*-iso10646-1
+URxvt*boldFont: -*-ttyp0-bold-r-normal-*-16-*-*-*-*-*-iso10646-1
+URxvt*italicFont: -*-ttyp0-medium-r-normal-*-16-*-*-*-*-*-iso10646-1
+URxvt*boldItalicFont: -*-ttyp0-bold-r-normal-*-16-*-*-*-*-*-iso10646-1
 URxvt.perl-ext:
 URxvt.perl-ext-common:
 URxvt.scrollstyle: plain
@@ -61,6 +61,6 @@ URxvt*scrollBar_right: true
 URxvt.buffered: true
 URxvt.cursorColor: base05
 URxvt.cursorBlink: true
-URxvt.letterSpace: -1
+URxvt.letterSpace: 0
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
