@@ -1,11 +1,10 @@
 # i3 config file (v4)
 
 set $mod Mod4
-set $font Hermit
-set $dmenu_cmd /usr/bin/dmenu_run -i -fn "$font-14"
+set $dmenu_cmd /usr/bin/dmenu_run -i -fn -*-ttyp0-medium-r-normal-*-22-*-*-*-*-*-iso10646-1
 
 # font for window titles. ISO 10646 = Unicode
-font pango:$font Bold 10
+fonti -*-ttyp0-bold-r-normal-*-18-*-*-*-*-*-iso10646-1
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -35,7 +34,7 @@ bindsym $mod+Shift+D exec $dmenu_cmd
 # -----------------------------------------------------------------------------
 # RAPID SWITCHING
 # -----------------------------------------------------------------------------
-set $qs_cmd quickswitch.py -d "dmenu -b -i -l 20 -fn '$font-14'"
+set $qs_cmd quickswitch.py -d "dmenu -b -i -l 20 -fn -*-ttyp0-medium-r-normal-*-22-*-*-*-*-*-iso10646-1"
 
 mode "switch" {
     bindsym $mod+a exec $qs_cmd, mode "default"
@@ -232,6 +231,9 @@ bar {
 
     status_command ~/.config/i3/scripts/conky
     mode hide
+    position bottom
+    tray_output none
+    font -*-ttyp0-medium-r-normal-*-16-*-*-*-*-*-iso10646-1
 }
 
 
