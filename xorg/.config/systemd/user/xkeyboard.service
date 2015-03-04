@@ -4,7 +4,7 @@ Documentation=man:setxkbmap(1) man:numlockx(1)
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/setxkbmap it
+ExecStart=/usr/bin/setxkbmap -layout it -option ctrl:nocaps
 ExecStart=/usr/bin/numlockx on
 RemainAfterExit=yes
 
