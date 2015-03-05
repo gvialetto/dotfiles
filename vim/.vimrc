@@ -63,8 +63,11 @@ set expandtab                                   " Expand tabs to spaces
 autocmd FileType make set noexpandtab           " ...but not in make
 autocmd FileType automake set noexpandtab       " ...and not automake
 autocmd FileType fstab set noexpandtab          " ...and not fstab
+autocmd FileType c set noexpandtab
 set shiftwidth=4
 set tabstop=4
+autocmd FileType c set shiftwidth=8
+autocmd FileType c set tabstop=8
 
 " Color and graphics
 set ruler                                       " Show cursor position
