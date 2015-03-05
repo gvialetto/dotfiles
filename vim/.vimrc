@@ -26,18 +26,16 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'guns/vim-clojure-highlight'
+Plugin 'tpope/vim-sensible'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
 " Basic configuration
-set showcmd
 let mapleader=","                               " Change mapleader
-set backspace=indent,eol,start                  " Backspace over everything
 set noswapfile                                  " No .swp files
 set nobackup                                    " No *~ files
 set pastetoggle=<F2>                            " Paste mode switch
-set history=1000                                " LOOTS of history
 set undolevels=1000                             " LOOTS of undo levels!
 set wildignore=*.swp,*.bak,*.pyc,*.class        " Files extensions to ignore
 set title                                       " Change terminal title
@@ -56,9 +54,6 @@ map <left> <nop>
 map <right> <nop>
 
 " Syntax
-syntax on
-filetype on
-filetype plugin indent on
 set expandtab                                   " Expand tabs to spaces
 autocmd FileType make set noexpandtab           " ...but not in make
 autocmd FileType automake set noexpandtab       " ...and not automake
@@ -70,23 +65,13 @@ autocmd FileType c set shiftwidth=8
 autocmd FileType c set tabstop=8
 
 " Color and graphics
-set ruler                                       " Show cursor position
-set list                                        " Display whitespaces
-set listchars=tab:>-,trail:.,extends:#          " How to display whitespaces
 color molokai                                   " Color theme 
-set nowrap                                      " Don't wrap lines
+set list                                        " Display whitespaces
 
 " Search and replace
 set smartcase                                   " Ignore case if pattern is lowercase
 set showmatch                                   " Show search results matches
 set hlsearch                                    " Highlight search results
-set incsearch                                   " Incremental search
-" clear highlight for search
-nmap <silent> <leader>/ :nohlsearch<CR>
-
-
-" Status line (use vim-airline below if possible...)
-set laststatus=2
 
 " #############################################################################
 " PLUGINS
