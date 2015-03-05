@@ -33,8 +33,6 @@ call vundle#end()            " required
 " Basic configuration
 set showcmd
 let mapleader=","                               " Change mapleader
-inoremap ii <Esc>
-vnoremap ii <Esc>
 set backspace=indent,eol,start                  " Backspace over everything
 set noswapfile                                  " No .swp files
 set nobackup                                    " No *~ files
@@ -56,10 +54,6 @@ map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
-
-" Easy edit&reload of .vimrc
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Syntax
 syntax on
