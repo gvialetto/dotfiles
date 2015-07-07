@@ -3,14 +3,13 @@ source ~/.local/share/antigen.git/antigen.zsh
 antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
 git
-mercurial
 github
-fasd
 gitignore
-gpg-agent
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
 gvialetto/oh-my-zsh-custom plugins/aliases
+gvialetto/oh-my-zsh-custom plugins/customapps
+rimraf/k
 EOBUNDLES
 
 antigen theme gvialetto/oh-my-zsh-custom themes/gvialetto
