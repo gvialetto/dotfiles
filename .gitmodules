@@ -1,6 +1,3 @@
-[submodule "antigen"]
-	path = zsh/.local/share/antigen.git
-	url = https://github.com/zsh-users/antigen.git
 [submodule "vundle.vim"]
 	path = vim/.local/vim/bundle/Vundle.vim
 	url = https://github.com/gmarik/Vundle.vim.git

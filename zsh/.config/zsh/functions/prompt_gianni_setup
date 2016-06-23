@@ -1,0 +1,35 @@
+function prompt_gianni_precmd {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+
+  if (( $+functions[git-info] )); then
+    git-info
+  fi
+}
+
+function prompt_gianni_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
+
+  # Load required functions.
+  autoload -Uz add-zsh-hook
+
+  # Add hook for calling git-info before each command.
+  add-zsh-hook precmd prompt_gianni_precmd
+
+  # Set git-info parameters.
+  zstyle ':prezto:module:git:info' verbose 'yes'
+  zstyle ':prezto:module:git:info:branch' format '%F{red}%b%f'
+  zstyle ':prezto:module:git:info:clean' format ''
+  zstyle ':prezto:module:git:info:dirty' format '%F{red}*%f'
+  zstyle ':prezto:module:git:info:keys' format \
+    'prompt' '%F{blue}(%f$(coalesce "%b" "%p" "%c")${git_info[rprompt]}%s%F{blue})%f ' \
+    'rprompt' '%C%D'
+
+  # Define prompts.
+  PROMPT='%~ ${(e)git_info[prompt]}%# '
+  RPROMPT=''
+}
+
+prompt_gianni_setup "$@"
