@@ -2,34 +2,22 @@
 " VIM configuration file
 " ===============================================================================
 
-" Initialize vundle
 set nocompatible
 filetype off
-set rtp+=~/.local/vim/bundle/Vundle.vim
-call vundle#begin('~/.local/vim/bundle')
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" other plugins
-Plugin 'tomasr/molokai'
-Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-airline'
-Plugin 'majutsushi/tagbar'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/syntastic'
-Plugin 'guns/vim-clojure-static'
-Plugin 'guns/vim-sexp'
-Plugin 'tpope/vim-sexp-mappings-for-regular-people'
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'guns/vim-clojure-highlight'
-Plugin 'tpope/vim-sensible'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#begin('~/.vim/plugged')
+Plug 'tomasr/molokai'
+Plug 'kien/ctrlp.vim'
+Plug 'bling/vim-airline'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'tpope/vim-sensible'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+call plug#end()
 
 " Basic configuration
 let mapleader=","                               " Change mapleader
@@ -65,7 +53,7 @@ autocmd FileType c set shiftwidth=8
 autocmd FileType c set tabstop=8
 
 " Color and graphics
-color molokai                                   " Color theme 
+color molokai                                   " Color theme
 set list                                        " Display whitespaces
 
 " Search and replace
