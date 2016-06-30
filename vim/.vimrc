@@ -21,8 +21,6 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 call plug#end()
 
 " Basic configuration
-let mapleader=","
-inoremap jk <ESC>
 set noswapfile
 set nobackup
 set pastetoggle=<F2>
