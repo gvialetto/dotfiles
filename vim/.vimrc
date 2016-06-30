@@ -4,6 +4,7 @@
 
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-easy-align'
+Plug 'whatyouhide/vim-lengthmatters'
 Plug 'tomasr/molokai'
 Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
@@ -78,7 +79,6 @@ autocmd FileType json set tabstop=2
 " Color and graphics
 color molokai
 set list
-set colorcolumn=80
 set numberwidth=5
 
 " Search and replace
