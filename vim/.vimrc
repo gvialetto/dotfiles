@@ -3,6 +3,7 @@
 " =============================================================================
 
 call plug#begin('~/.vim/plugged')
+Plug 'junegunn/vim-easy-align'
 Plug 'tomasr/molokai'
 Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
@@ -94,8 +95,14 @@ let g:airline_powerline_fonts = 1
 
 nmap <F8> :TagbarToggle<CR>
 
-" Rainbow parentheses.vim
+" Rainbow parentheses (https://github.com/kien/rainbow_parentheses.vim)
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" Vim easy align (https://github.com/junegunn/vim-easy-align)
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
