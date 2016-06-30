@@ -3,6 +3,7 @@
 " =============================================================================
 
 call plug#begin('~/.vim/plugged')
+Plug 'rust-lang/rust.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'whatyouhide/vim-lengthmatters'
 Plug 'tomasr/molokai'
