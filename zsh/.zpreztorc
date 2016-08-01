@@ -56,6 +56,9 @@ zstyle ':prezto:module:syntax-highlighting' styles \
   'command' 'fg=blue' \
   'function' 'fg=blue'
 
+# Autocompletion
+zstyle ':prezto:module:autosuggestions' color 'yes'
+
 # Terminal
 zstyle ':prezto:module:terminal' auto-title 'yes'
 zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
