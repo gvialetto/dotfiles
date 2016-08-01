@@ -76,5 +76,9 @@ add2path "$HOME/.local/bin"
 # -- https://github.com/taylor/kiex
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 # -- https://github.com/rbenv/rbenv.git
-test -d "$HOME/.rbenv" && add2path "$HOME/.rbenv/bin"
+test -d "$HOME/.rbenv" && {
+    add2path "$HOME/.rbenv/bin"
+    add2path "$HOME/.rbenv/shims"
+    source "$HOME/.rbenv/completions/rbenv.zsh"
+}
 
