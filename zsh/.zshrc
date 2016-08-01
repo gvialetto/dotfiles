@@ -40,8 +40,20 @@ if [[ -f ~/.config/zsh/dircolors ]] ; then
   eval $(dircolors -b ~/.config/zsh/dircolors)
 fi
 
+# Aliases
+alias ls=" ls -hF --group-directories-first --color"
+alias ex=" unarchive"
+alias mkdir="mkdir -p -v"
+alias md="mkdir"
+alias rmd="rm -r"
+alias tc=" touch"
+alias x=" exit"
+
+# Bindkeys
+bindkey "^R" history-incremental-pattern-search-backward
+
+autoload add2path
 # Add paths for standalone apps
-setopt no_nomatch
 if [ -d ~/.local/opt ]; then
   for dir in ~/.local/opt/*; do
     _customapps_path="$dir"
@@ -51,24 +63,18 @@ if [ -d ~/.local/opt ]; then
       continue
     fi
     [ -d ${dir}/bin ] && _customapps_path="${dir}/bin"
-    if [[ ":$PATH:" != *":${_customapps_path}:"* ]]; then
-      export PATH="${_customapps_path}:${PATH}"
-      fi
+    add2path "$_customapps_path"
   done
-  setopt nomatch
   unset _customapps_path
 fi
 
 # Add paths for local scripts
-if [ -d "$PATH/.bin" ] && [[ ":$PATH:" != *":${HOME}/.bin:"* ]]; then
-  export PATH="$HOME/.bin:$PATH"
-fi
+add2path "$HOME/.bin"
+add2path "$HOME/.local/bin"
 
-# Aliases
-alias ls=" ls -hF --group-directories-first --color"
-alias ex=" unarchive"
-alias mkdir="mkdir -p -v"
-alias md="mkdir"
-alias rmd="rm -r"
-alias tc=" touch"
-alias x=" exit"
+# Add sources for tools if present
+# -- https://github.com/taylor/kiex
+test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
+# -- https://github.com/rbenv/rbenv.git
+test -d "$HOME/.rbenv" && add2path "$HOME/.rbenv/bin"
+
