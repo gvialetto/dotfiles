@@ -53,19 +53,16 @@ bindkey "^R" history-incremental-pattern-search-backward
 
 autoload add2path
 # Add paths for standalone apps
-if [ -d ~/.local/opt ]; then
-  for dir in ~/.local/opt/*; do
-    _customapps_path="$dir"
-    [ -d ${dir} ] || continue
-    if [ -f ${dir}/.mkenv ]; then
-      source ${dir}/.mkenv
-      continue
-    fi
-    [ -d ${dir}/bin ] && _customapps_path="${dir}/bin"
-    add2path "$_customapps_path"
-  done
-  unset _customapps_path
-fi
+test -d ~/.local/opt && {
+    for dir in ~/.local/opt/*; do
+        test -d "${dir}" || continue
+        if [ -d "${dir}/bin" ]; then
+            add2path "${dir}/bin"
+        else
+            add2path "${dir}"
+        fi
+    done
+}
 
 # Add paths for local scripts
 add2path "$HOME/.bin"
