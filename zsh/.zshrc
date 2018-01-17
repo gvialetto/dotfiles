@@ -68,20 +68,35 @@ test -d ~/.local/opt && {
 add2path "$HOME/.bin"
 add2path "$HOME/.local/bin"
 
-# Add sources for tools if present
-# -- https://github.com/taylor/kiex
+# Add sources for languages if present
+# -- Erlang -- https://github.com/kerl/kerl
+command -v kerl >/dev/null 2>&1 && {
+    test "$(kerl list installations)" && {
+        # HACK: this should work as long as we install all version under the
+        # same path
+        . $(kerl list installations | sort | cut -d' ' -f2 | tail -1)/activate
+    }
+}
+# -- Elixir -- https://github.com/taylor/kiex
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
-# -- https://github.com/rbenv/rbenv.git
+# -- Ruby -- https://github.com/rbenv/rbenv.git
 test -d "$HOME/.rbenv" && {
     add2path "$HOME/.rbenv/bin"
     add2path "$HOME/.rbenv/shims"
     source "$HOME/.rbenv/completions/rbenv.zsh"
 }
-# Hello Go!
+# -- Go
 test -d "$HOME/.go" && {
     export GOPATH="$HOME/.go"
-    add2path "$GOPATH/bin"
+    add2path "$HOME/bin"
+    # Now that go is configured (maybe) we can use vg
+    command -v vg >/dev/null 2>&1 && eval "$(vg eval --shell zsh)"
 }
-# Now that go is configured (maybe) we can use vg
-command -v vg >/dev/null 2>&1 && eval "$(vg eval --shell zsh)"
+# -- Rust
+test -d "$HOME/.cargo/bin" && {
+    add2path "$HOME/.cargo/bin"
+    command -v racer >/dev/null 2>&1 && {
+        export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+    }
+}
 
