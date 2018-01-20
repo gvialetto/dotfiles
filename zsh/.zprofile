@@ -41,8 +41,6 @@ test -d "$HOME/.rbenv" && {
 test -d "$HOME/.go" && {
     export GOPATH="$HOME/.go"
     PATH="$GOPATH/.bin:${PATH}"
-    # Now that go is configured (maybe) we can use vg
-    command -v vg >/dev/null 2>&1 && eval "$(vg eval --shell zsh)"
 }
 # -- Rust
 test -d "$HOME/.cargo/bin" && {

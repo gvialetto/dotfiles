@@ -50,3 +50,9 @@ alias x=" exit"
 
 # Bindkeys
 bindkey "^R" history-incremental-pattern-search-backward
+
+# -- Go VG -- https://github.com/GetStream/vg
+test -d "$HOME/.go" && {
+    # Now that go is configured (maybe) we can use vg
+    command -v vg >/dev/null 2>&1 && eval "$(vg eval --shell zsh)"
+}
