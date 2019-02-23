@@ -40,7 +40,7 @@ test -d "$HOME/.rbenv" && {
 # -- Go
 test -d "$HOME/.go" && {
     export GOPATH="$HOME/.go"
-    PATH="$GOPATH/.bin:${PATH}"
+    PATH="$GOPATH/bin:${PATH}"
 }
 # -- Rust
 test -d "$HOME/.cargo/bin" && {
