@@ -12,3 +12,4 @@ emacs/.emacs.d/auto-save*
 vim/.local/vim/.netrwhist
 vim/.local/vim/bundle/*
 !vim/.local/vim/bundle/Vundle.vim
+vim/.fonts/.uuid
