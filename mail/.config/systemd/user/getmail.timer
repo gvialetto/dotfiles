@@ -1,9 +1,0 @@
-[Unit]
-Description=Getmail automatic refresh
-Documentation=man:getmail(1) man:systemd.timer(5)
-
-[Timer]
-OnUnitActiveSec=5m
-
-[Install]
-WantedBy=xlogin.target

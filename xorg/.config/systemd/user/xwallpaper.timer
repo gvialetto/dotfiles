@@ -1,9 +1,0 @@
-[Unit]
-Description=X wallpaper automatic setting
-Documentation=man:feh(1) man:systemd.timer(5)
-
-[Timer]
-OnUnitActiveSec=15m
-
-[Install]
-WantedBy=xlogin.target
