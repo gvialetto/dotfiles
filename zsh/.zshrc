@@ -56,3 +56,8 @@ test -d "$HOME/.go" && {
     # Now that go is configured (maybe) we can use vg
     command -v vg >/dev/null 2>&1 && eval "$(vg eval --shell zsh)"
 }
+
+# Support custom additional configuration based on device
+test -d "$HOME/.custom" && {
+  test -f "$HOME/.custom/zshrc" && source "$HOME/.custom/zshrc"
+}
