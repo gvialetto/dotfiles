@@ -50,6 +50,11 @@ test -d "$HOME/.cargo/bin" && {
     }
 }
 
+# -- Android SDK
+test -d "$HOME/.local/opt/android-sdk" && {
+    export ANDROID_HOME="$HOME/.local/opt/android-sdk"
+}
+
 typeset -gU cdpath fpath mailpath path
 
 # Set the default Less options.
