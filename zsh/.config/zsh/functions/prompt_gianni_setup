@@ -23,13 +23,17 @@ function prompt_gianni_setup {
   # Add hook for calling git-info before each command.
   add-zsh-hook precmd prompt_gianni_precmd
 
-  zstyle ':vcs_info:*' enable bzr git hg svn
+  zstyle ':vcs_info:*' enable git hg svn
   zstyle ':vcs_info:*' check-for-changes true
+  zstyle ':vcs_info:(hg*|git*):*' get-revision true
+  zstyle ':vcs_info:(hg*|git*):*' check-for-changes true
   zstyle ':vcs_info:*' stagedstr '%F{red}*%f'
   zstyle ':vcs_info:*' unstagedstr '%F{red}!%f'
   zstyle ':vcs_info:*' formats '%F{blue}(%f%F{red}%b%f%c%u%F{blue})%f '
   zstyle ':vcs_info:*' actionformats '%F{blue}(%f%F{red}%b%f%c%u|%F{cyan}%a%f%F{blue})%f '
-  zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%F{red}%b%f|%F{cyan}%r%f'
+  zstyle ':vcs_info:(hg*):*' branchformat '%F{red}%b%f|%F{cyan}%r%f'
+  zstyle ':vcs_info:hg*:*' get-bookmarks true
+  zstyle ':vcs_info:hg*:*' hgrevformat "%h"
   zstyle ':vcs_info:git*+set-message:*' hooks git_status
 
   # Define prompts.
