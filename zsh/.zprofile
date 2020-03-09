@@ -32,10 +32,13 @@ command -v kerl >/dev/null 2>&1 && {
 # -- Elixir -- https://github.com/taylor/kiex
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 # -- Ruby -- https://github.com/rbenv/rbenv.git
-test -d "$HOME/.rbenv" && {
-    PATH="$HOME/.rbenv/bin:${PATH}"
-    PATH="$HOME/.rbenv/shims:${PATH}"
-    source "$HOME/.rbenv/completions/rbenv.zsh"
+test -d "$HOME/.local/opt/rbenv" && {
+    eval "$(rbenv init -)"
+}
+# -- Python -- https://github.com/pyenv/pyenv
+test -d "$HOME/.local/opt/pyenv" && {
+    export PYENV_ROOT="$HOME/.local/opt/pyenv"
+    eval "$(pyenv init -)"
 }
 # -- Go
 test -d "$HOME/.go" && {
