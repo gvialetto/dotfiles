@@ -1,0 +1,137 @@
+" Plugins
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !mkdir -p ~/.vim/autoload
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+" Utilities
+Plug 'tpope/vim-sensible'
+Plug 'junegunn/vim-easy-align'
+Plug 'whatyouhide/vim-lengthmatters'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'itchyny/lightline.vim'
+" Color themes
+Plug 'joshdick/onedark.vim'
+" Programming general
+Plug 'preservim/nerdcommenter'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'dense-analysis/ale'
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Language support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'rust-lang/rust.vim'
+call plug#end()
+
+" Basic configuration
+set noswapfile
+set nobackup
+set nowb
+set pastetoggle=<F2>
+set undolevels=1000
+set wildignore=*.o,*~,*.swp,*.bak,*.pyc,*.class
+set wildignore+=*/.git/*,*/.hg/*,
+set title
+set noshowmode
+set visualbell
+set noerrorbells
+set encoding=utf-8
+set nocompatible
+set number
+set relativenumber
+set t_vb=
+set tm=500
+set hid
+set autoread
+au FocusGained,BufEnter * checktime
+set whichwrap+=<,>,h,l
+set lazyredraw
+
+" Shortcuts
+let mapleader=','
+nnoremap <leader>w :w!<cr>
+nnoremap <leader>rc :so $MYVIMRC<CR>
+map <silent> <leader><cr> :noh<cr>
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command Wq :execute ':W' | :q
+command WQ :Wq
+
+" Filetypes configuration
+set expandtab
+autocmd FileType make set noexpandtab
+autocmd FileType automake set noexpandtab
+autocmd FileType fstab set noexpandtab
+autocmd FileType c set noexpandtab
+set shiftwidth=4
+set tabstop=4
+autocmd FileType c set shiftwidth=8
+autocmd FileType c set tabstop=8
+autocmd FileType json set shiftwidth=2
+autocmd FileType json set tabstop=2
+set lbr
+set tw=80
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
+
+" Color and graphics
+syntax on
+if exists("$TMUX")
+    " We need those overrides for VIM to work
+    " correctly in tmux 24bit mode
+    let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+    let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+endif
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+set termguicolors
+try
+    colorscheme onedark
+catch
+endtry
+set list
+set numberwidth=5
+
+" Search and replace
+set ignorecase
+set smartcase
+set showmatch
+set hlsearch
+set incsearch
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PLUGINS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nmap <F8> :TagbarToggle<CR>
+nmap <F7> :NERDTreeToggle<CR>
+
+au VimEnter * :RainbowParentheses
+
+" Vim easy align (https://github.com/junegunn/vim-easy-align)
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+let g:lightline = {
+    \ 'colorscheme': 'onedark',
+    \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'git', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'git': 'fugitive#head'
+      \ },
+    \ }
+let g:lightline.tabline = {
+  \   'left': [ ['tabs'] ],
+  \   'right': [ [] ]
+  \ }
+set showtabline=2  " Show tabline
+set guioptions-=e  " Don't use GUI tabline
