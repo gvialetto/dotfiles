@@ -60,7 +60,10 @@ let NERDTreeShowLineNumbers = 1
 let NERDTreeAutoCenter = 1
 
 " Open NERDTree on startup, when no file has been specified
-autocmd VimEnter * if !argc() | NERDTree 
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree
+" Close VIM if nerdtree is the only buffer left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q
 
 " Locate file in hierarchy quickly
 map <leader>T :NERDTreeFind<cr>
@@ -89,6 +92,7 @@ nnoremap <silent> <F7> :NERDTreeToggle<CR><c-w>l:call SyncTree()<cr><c-w>h
 " Stolen from (with minor changes) https://stackoverflow.com/questions/36864377/open-nerdtree-automatically-when-start-vim-on-a-folder-and-dont-show-two-tree-v
 augroup filetype_nerdtree
     au!
+    au FileType nerdtree setlocal nonumber norelativenumber
     au FileType nerdtree call s:disable_lightline_on_nerdtree()
     au WinEnter,BufWinEnter,TabEnter * call s:disable_lightline_on_nerdtree()
 augroup END
