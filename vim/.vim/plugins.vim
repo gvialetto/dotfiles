@@ -57,9 +57,43 @@ autocmd VimEnter * if !argc() | NERDTree
 " Locate file in hierarchy quickly
 map <leader>T :NERDTreeFind<cr>
 
-" Toogle on/off
-nmap <leader>o :NERDTreeToggle<cr>
-nmap <F7> :NERDTreeToggle<CR>
+" Toogle on/off + open on the right position
+
+" Stolen from https://www.reddit.com/r/vim/comments/g47z4f/synchronizing_nerdtree_with_the_currently_opened/
+" Check if NERDTree is open or active
+function! IsNERDTreeOpen()
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+function! SyncTree()
+  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+    wincmd p
+  endif
+endfunction
+
+nnoremap <silent> <leader>o :NERDTreeToggle<cr><c-w>l:call SyncTree()<cr><c-w>h
+nnoremap <silent> <F7> :NERDTreeToggle<CR><c-w>l:call SyncTree()<cr><c-w>h
+
+" Hack to not show lightline in NerdTree
+" Stolen from (with minor changes) https://stackoverflow.com/questions/36864377/open-nerdtree-automatically-when-start-vim-on-a-folder-and-dont-show-two-tree-v
+augroup filetype_nerdtree
+    au!
+    au FileType nerdtree call s:disable_lightline_on_nerdtree()
+    au WinEnter,BufWinEnter,TabEnter * call s:disable_lightline_on_nerdtree()
+augroup END
+
+function s:disable_lightline_on_nerdtree() abort
+    let nerdtree_winnr = index(map(range(1, winnr('$')), {_,v -> getbufvar(winbufnr(v), '&ft')}), 'nerdtree') + 1
+    " TODO: this should prevent flickering, but works only in vim. Check why.
+    if nerdtree_winnr && !has("nvim")
+        exe 'au SafeState * ++once call setwinvar('..nerdtree_winnr..', "&stl", "%#Normal#")'
+    else
+        call timer_start(0, {-> nerdtree_winnr && setwinvar(nerdtree_winnr, '&stl', '%#Normal#')})
+    endif
+endfunction
 
 "----------------------------------------------------------------------------
 " RainbowParentheses
