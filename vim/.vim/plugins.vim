@@ -14,6 +14,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'wincent/terminus'
+Plug 'ntpeters/vim-better-whitespace'
 " Color themes
 Plug 'joshdick/onedark.vim'
 " Programming general
@@ -63,9 +64,9 @@ let NERDTreeAutoCenter = 1
 
 " Open NERDTree on startup, when no file has been specified
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | execute 'NERDTree' | endif
 " Close VIM if nerdtree is the only buffer left
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Locate file in hierarchy quickly
 map <leader>T :NERDTreeFind<cr>
@@ -139,6 +140,19 @@ let g:lightline = {
     \ }
 set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
+
+let g:lightline#bufferline#filename_modifier = ':t'
+let g:lightline#bufferline#show_number = 2
+nmap <leader>1 <Plug>lightline#bufferline#go(1)
+nmap <leader>2 <Plug>lightline#bufferline#go(2)
+nmap <leader>3 <Plug>lightline#bufferline#go(3)
+nmap <leader>4 <Plug>lightline#bufferline#go(4)
+nmap <leader>5 <Plug>lightline#bufferline#go(5)
+nmap <leader>6 <Plug>lightline#bufferline#go(6)
+nmap <leader>7 <Plug>lightline#bufferline#go(7)
+nmap <leader>8 <Plug>lightline#bufferline#go(8)
+nmap <leader>9 <Plug>lightline#bufferline#go(9)
+nmap <leader>0 <Plug>lightline#bufferline#go(10)
 
 "----------------------------------------------------------------------------
 " Deoplete
