@@ -24,6 +24,7 @@ set autoread
 au FocusGained,BufEnter * checktime
 set whichwrap+=<,>,h,l
 set lazyredraw
+set updatetime=100
 
 " ------------------------------------------------------------------------------
 " Shortcuts

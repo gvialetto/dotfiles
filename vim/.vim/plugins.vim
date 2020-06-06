@@ -13,6 +13,7 @@ Plug 'whatyouhide/vim-lengthmatters'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
+Plug 'wincent/terminus'
 " Color themes
 Plug 'joshdick/onedark.vim'
 " Programming general
