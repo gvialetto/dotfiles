@@ -1,35 +1,6 @@
-" Plugins
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !mkdir -p ~/.vim/autoload
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin('~/.vim/plugged')
-" Utilities
-Plug 'tpope/vim-sensible'
-Plug 'junegunn/vim-easy-align'
-Plug 'whatyouhide/vim-lengthmatters'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'itchyny/lightline.vim'
-" Color themes
-Plug 'joshdick/onedark.vim'
-" Programming general
-Plug 'preservim/nerdcommenter'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'dense-analysis/ale'
-Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-" Language support
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'rust-lang/rust.vim'
-Plug 'slashmili/alchemist.vim'
-call plug#end()
-
+" ------------------------------------------------------------------------------
 " Basic configuration
+" ------------------------------------------------------------------------------
 set noswapfile
 set nobackup
 set nowb
@@ -53,7 +24,9 @@ au FocusGained,BufEnter * checktime
 set whichwrap+=<,>,h,l
 set lazyredraw
 
+" ------------------------------------------------------------------------------
 " Shortcuts
+" ------------------------------------------------------------------------------
 let mapleader=','
 nnoremap <leader>w :w!<cr>
 nnoremap <leader>rc :so $MYVIMRC<CR>
@@ -62,7 +35,9 @@ command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 command Wq :execute ':W' | :q
 command WQ :Wq
 
+" ------------------------------------------------------------------------------
 " Filetypes configuration
+" ------------------------------------------------------------------------------
 set expandtab
 autocmd FileType make set noexpandtab
 autocmd FileType automake set noexpandtab
@@ -80,7 +55,14 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
+" ------------------------------------------------------------------------------
+" Load plugins/color schemes
+" ------------------------------------------------------------------------------
+source ~/.vim/plugins.vim
+
+" ------------------------------------------------------------------------------
 " Color and graphics
+" ------------------------------------------------------------------------------
 syntax on
 if exists("$TMUX")
     " We need those overrides for VIM to work
@@ -98,41 +80,11 @@ endtry
 set list
 set numberwidth=5
 
+" ------------------------------------------------------------------------------
 " Search and replace
+" ------------------------------------------------------------------------------
 set ignorecase
 set smartcase
 set showmatch
 set hlsearch
 set incsearch
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGINS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-nmap <F8> :TagbarToggle<CR>
-nmap <F7> :NERDTreeToggle<CR>
-
-au VimEnter * :RainbowParentheses
-
-" Vim easy align (https://github.com/junegunn/vim-easy-align)
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-let g:lightline = {
-    \ 'colorscheme': 'onedark',
-    \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'git', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'git': 'fugitive#head'
-      \ },
-    \ }
-let g:lightline.tabline = {
-  \   'left': [ ['tabs'] ],
-  \   'right': [ [] ]
-  \ }
-set showtabline=2  " Show tabline
-set guioptions-=e  " Don't use GUI tabline
