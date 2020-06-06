@@ -22,6 +22,14 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'dense-analysis/ale'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Autocompletion
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 " Language support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'rust-lang/rust.vim'
@@ -119,3 +127,15 @@ let g:lightline.tabline = {
   \ }
 set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
+
+"----------------------------------------------------------------------------
+" Deoplete
+"----------------------------------------------------------------------------
+let g:deoplete#enable_at_startup = 1
+" vim-go uses omnicomplete, let's use that in deoplete for go files
+set completeopt+=noselect
+call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+" Automatically close scratch window with definitions
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" TAB, TAB everywhere
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
