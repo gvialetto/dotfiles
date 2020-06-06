@@ -12,6 +12,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'whatyouhide/vim-lengthmatters'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 " Color themes
 Plug 'joshdick/onedark.vim'
 " Programming general
@@ -124,11 +125,17 @@ let g:lightline = {
       \ 'component_function': {
       \   'git': 'fugitive#head'
       \ },
+      \ 'tabline' : {
+      \   'left': [ ['buffers'] ],
+      \   'right': [ [] ]
+      \ },
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers'
+      \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel'
+      \ }
     \ }
-let g:lightline.tabline = {
-  \   'left': [ ['tabs'] ],
-  \   'right': [ [] ]
-  \ }
 set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
 
