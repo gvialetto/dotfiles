@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Install zinit if not present
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 ZINIT_REPO="https://github.com/zdharma-continuum/zinit.git"
@@ -8,17 +15,15 @@ if [[ ! -d "${ZINIT_HOME}" ]]; then
 fi
 
 source "${ZINIT_HOME}/zinit.zsh"
-autoload -Uz compinit promptinit _zinit
+autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
-compinit
-promptinit
 
 # Loads language/SDK related environment/completions/etc.
 source "${ZDOTDIR}/init-tools.zsh"
 
 # Prompt
-zinit ice from"gh-r" as"command" atload'eval "$(starship init zsh)"'
-zinit load starship/starship
+zinit ice depth=1
+zinit light romkatv/powerlevel10k
 
 # Oh my zsh plugins
 zinit wait lucid for \
@@ -45,6 +50,8 @@ zinit wait lucid for \
 
 # Plugins
 zinit wait lucid for \
+    light-mode depth=1 atinit'ZVM_INIT_MODE=sourcing' \
+        jeffreytse/zsh-vi-mode \
     light-mode blockf atpull'zinit creinstall -q .' \
     atinit"
         zstyle ':completion:*' completer _expand _complete _ignored _approximate
@@ -59,17 +66,16 @@ zinit wait lucid for \
         zsh-users/zsh-completions \
     light-mode atinit"
         zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always \$realpath'
-        zstyle ':fzf-tab:complete:cd:*' popup-pad 50 0
+        zstyle ':fzf-tab:complete:exa:*' fzf-preview 'exa -1 --color=always \$realpath'
         zstyle ':fzf-tab:complete:(\\|*/|)man:*' fzf-preview 'man \$word'
-        zstyle ':fzf-tab:complete:(\\|*/|)man:*' popup-pad 100 0
     " \
         Aloxaf/fzf-tab \
-    light-mode atinit"ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20" atload"!_zsh_autosuggest_start" \
+    light-mode atinit"ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20;" atload"!_zsh_autosuggest_start" \
         zsh-users/zsh-autosuggestions \
-    light-mode atinit"typeset -gA FAST_HIGHLIGHT; FAST_HIGHLIGHT[git-cmsg-len]=100; zpcompinit; zpcdreplay" \
+    light-mode atinit"typeset -gA FAST_HIGHLIGHT; FAST_HIGHLIGHT[git-cmsg-len]=100; zicompinit; zicdreplay" \
         zdharma-continuum/fast-syntax-highlighting \
-    bindmap"^R -> ^H" atinit"
-        zstyle :history-search-multi-word page-size 10
+    light-mode bindmap"^R -> ^H" atinit"
+        zstyle :history-search-multi-word page-size 20
         zstyle :history-search-multi-word highlight-color fg=red,bold
         zstyle :plugin:history-search-multi-word reset-prompt-protect 1
     " \
@@ -89,3 +95,6 @@ alias rmd="rm -r"
 alias x=" exit"
 
 typeset -gU cdpath fpath mailpath path
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
