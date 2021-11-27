@@ -1,26 +1,5 @@
-export EDITOR='vim'
-export VISUAL='vim'
-export PAGER='less'
+# Sets up applications/commands for a variety of purposes
 
-if [[ -z "$LANG" ]]; then
-  export LANG='en_US.UTF-8'
-fi
-
-# Add paths for standalone apps
-test -d ~/.local/opt && {
-    for dir in ~/.local/opt/*; do
-        test -d "${dir}" || continue
-        if [ -d "${dir}/bin" ]; then
-            PATH="${dir}/bin:${PATH}"
-        else
-            PATH="${dir}:${PATH}"
-        fi
-    done
-}
-
-# Add paths for local scripts
-PATH="$HOME/.bin:$HOME/.local/bin:${PATH}"
-# Add paths for language tools if present
 # -- Erlang -- https://github.com/kerl/kerl
 command -v kerl >/dev/null 2>&1 && {
     test "$(kerl list installations)" && {
@@ -29,22 +8,27 @@ command -v kerl >/dev/null 2>&1 && {
         . $(kerl list installations | sort | cut -d' ' -f2 | tail -1)/activate
     }
 }
+
 # -- Elixir -- https://github.com/taylor/kiex
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
+
 # -- Ruby -- https://github.com/rbenv/rbenv.git
 test -d "$HOME/.local/opt/rbenv" && {
     eval "$(rbenv init -)"
 }
+
 # -- Python -- https://github.com/pyenv/pyenv
 test -d "$HOME/.local/opt/pyenv" && {
     export PYENV_ROOT="$HOME/.local/opt/pyenv"
     eval "$(pyenv init -)"
 }
+
 # -- Go
 test -d "$HOME/.go" && {
     export GOPATH="$HOME/.go"
     PATH="$GOPATH/bin:${PATH}"
 }
+
 # -- Rust
 test -d "$HOME/.cargo/bin" && {
     PATH="$HOME/.cargo/bin:${PATH}"
@@ -57,13 +41,6 @@ test -d "$HOME/.cargo/bin" && {
 test -d "$HOME/.local/opt/android-sdk" && {
     export ANDROID_HOME="$HOME/.local/opt/android-sdk"
 }
-
-typeset -gU cdpath fpath mailpath path
-
-# Set the default Less options.
-# Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
-# Remove -X and -F (exit if the content fits on one screen) to enable it.
-export LESS='-F -g -i -M -R -S -w -X -z-4'
 
 # Set the Less input preprocessor.
 # Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
