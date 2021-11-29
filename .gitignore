@@ -11,6 +11,3 @@ emacs/.emacs.d/auto-save*
 # Vim
 vim/.fonts/.uuid
 vim/.vim/autoload/plug.vim
-# Zsh
-.zcompdump
-.zhistory
