@@ -1,5 +1,26 @@
 # Sets up applications/commands for a variety of purposes
 
+# Add user binaries to path if the folders exist
+if [ -d ~/.local/bin ]; then
+    export PATH="$HOME/.local/bin:${PATH}"
+fi
+if [ -d ~/.bin ]; then
+    export PATH="$HOME/.local/bin:${PATH}"
+fi
+
+# Add standalone apps under ~/.local/opt to PATH
+if [ -d ~/.local/opt ]; then
+    for dir in ~/.local/opt/*; do
+        [ -d "${dir}" ] || continue
+        if [ -d "${dir}/bin" ]; then
+            export PATH="${dir}/bin:${PATH}"
+        else
+            export PATH="${dir}:${PATH}"
+        fi
+    done
+fi
+
+
 # -- Erlang -- https://github.com/kerl/kerl
 command -v kerl >/dev/null 2>&1 && {
     test "$(kerl list installations)" && {
