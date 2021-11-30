@@ -38,6 +38,7 @@ require('packer').startup(function(use)
   }
 
   use "lukas-reineke/indent-blankline.nvim"
+  use "fladson/vim-kitty"
 
   if packer_bootstrap then
     require('packer').sync()
