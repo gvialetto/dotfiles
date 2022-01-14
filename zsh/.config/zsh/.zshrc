@@ -46,7 +46,8 @@ zinit wait lucid for \
 	OMZL::termsupport.zsh \
 	OMZP::git \
 	OMZP::fzf \
-    OMZP::kubectl 
+    OMZP::kubectl \
+    OMZP::helm
 
 # Plugins
 zinit wait lucid for \
