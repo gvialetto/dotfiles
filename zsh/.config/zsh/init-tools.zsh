@@ -23,7 +23,7 @@ fi
 
 # -- Erlang -- https://github.com/kerl/kerl
 command -v kerl >/dev/null 2>&1 && {
-    test "$(kerl list installations)" && {
+    test "$(kerl list installations | grep -v 'no installations')" && {
         # HACK: this should work as long as we install all version under the
         # same path
         . $(kerl list installations | sort | cut -d' ' -f2 | tail -1)/activate
