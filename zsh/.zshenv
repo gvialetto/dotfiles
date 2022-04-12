@@ -5,6 +5,5 @@ export HISTFILE="$ZDOTDIR/.zhistory"    # History filepath
 export HISTSIZE=10000                   # Maximum events for internal history
 export SAVEHIST=10000                   # Maximum events in history file
 
-if [[ -z "$LANG" ]]; then
-  export LANG='en_US.UTF-8'
-fi
+[ -z "${LANG}" ] && export LANG='en_US.UTF-8'
+[ -f "${ZDOTDIR}/.zshenv-local" ] && source "${ZDOTDIR}/.zshenv-local"
