@@ -1,2 +1,4 @@
 .zcompdump
 .zhistory
+.config/zsh/bin
+.config/zsh/data
