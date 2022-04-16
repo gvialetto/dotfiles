@@ -28,11 +28,20 @@ return require('packer').startup(function(use)
     requires = {'tpope/vim-repeat', opt = true}
   }
 
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
   -- UI 
   use {
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
-    config = function() require('lualine').setup() end
+    config = function() 
+      require('lualine').setup {
+        extensions = {'nvim-tree'},
+      }
+    end
   }
 
   use {
@@ -53,6 +62,32 @@ return require('packer').startup(function(use)
         space_char_blankline = " ",
       }
     end
+  }
+
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    config = function()
+      require('nvim-tree').setup {
+        actions = {
+          open_file = {
+            quit_on_open = true,
+          }
+        }
+      }
+      vim.cmd [[
+        augroup nvimtree_no_file
+          autocmd!
+          autocmd StdinReadPre * let s:std_in=1
+          autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | execute 'NvimTreeOpen' | endif
+        augroup end
+      ]]
+    end
+  }
+
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
   }
 
   if packer_bootstrap then
