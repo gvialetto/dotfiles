@@ -42,3 +42,6 @@ done
 [ -d "$HOME/.local/opt/android-sdk" ] && {
     export ANDROID_HOME="$HOME/.local/opt/android-sdk"
 }
+
+# -- NVM/NPM
+[ -s "$HOME/.nvm/nvm.sh" ] && source "$HOME/.nvm/nvm.sh"
