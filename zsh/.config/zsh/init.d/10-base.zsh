@@ -2,10 +2,7 @@
 
 typeset -gU cdpath fpath mailpath path
 
-# Disable bells
-unsetopt beep
-
-mkdir -p "$HOME/.local/bin" "$ZDOTDIR/bin" "$ZDOTDIR/data/completions"
+mkdir -p "$HOME/.local/bin" "$ZDOTDIR/data/completions"
 path=("$HOME/.local/bin" "$ZDOTDIR/bin" $path)
 fpath=("$ZDOTDIR/data/completions" $fpath)
 
