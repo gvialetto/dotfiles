@@ -21,9 +21,11 @@ if ! zgenom saved; then
     zgenom load zsh-users/zsh-history-substring-search
 
     zgenom oh-my-zsh plugins/fzf
+    zgenom oh-my-zsh plugins/direnv
     [[ "$(uname -s)" = Darwin ]] && {
-        zgenom ohmyzsh plugins/brew
-        zgenom ohmyzsh plugins/macos
+        zgenom oh-my-zsh plugins/brew
+        zgenom oh-my-zsh plugins/macos
+        zgenom oh-my-zsh plugins/asdf
     }
 
     zgenom load zsh-users/zsh-completions src
