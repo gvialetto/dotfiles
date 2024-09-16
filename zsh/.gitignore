@@ -2,3 +2,5 @@
 .zhistory
 .config/zsh/bin
 .config/zsh/data
+.config/zsh/.zsh_sessions
+.config/zsh/local.d
