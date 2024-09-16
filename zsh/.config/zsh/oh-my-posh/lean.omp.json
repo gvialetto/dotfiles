@@ -1,0 +1,120 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "blocks": [
+        {
+            "alignment": "left",
+            "newline": true,
+            "segments": [
+                {
+                    "foreground": "darkGray",
+                    "style": "plain",
+                    "template": "╭─ ",
+                    "type": "text"
+                },
+                {
+                    "foreground": "blue",
+                    "properties": {
+                        "style": "powerlevel",
+                        "max_width": 75
+                    },
+                    "style": "plain",
+                    "template": "<b>{{ .Path }}</b> ",
+                    "type": "path"
+                },
+                {
+                    "foreground": "green",
+                    "properties": {
+                        "fetch_status": true,
+                        "branch_icon": " "
+                    },
+                    "style": "plain",
+                    "template": "{{ .HEAD }} ",
+                    "type": "git"
+                },
+                {
+                    "foreground": "green",
+                    "properties": {
+                        "fetch_status": true,
+                        "branch_ahead_icon": "⇡"
+                    },
+                    "style": "plain",
+                    "template": "{{if .BranchStatus }}{{ .BranchStatus }} {{ end }}",
+                    "type": "git"
+                },
+                {
+                    "foreground": "yellow",
+                    "properties": {
+                        "fetch_status": true
+                    },
+                    "style": "plain",
+                    "template": "{{ if .Staging.Changed }}+{{ add .Staging.Added .Staging.Deleted .Staging.Modified }} {{ end }}",
+                    "type": "git"
+                },
+                {
+                    "foreground": "yellow",
+                    "properties": {
+                        "fetch_status": true
+                    },
+                    "style": "plain",
+                    "template": "{{ if .Working.Modified }}!{{ .Working.Modified }} {{ end }}",
+                    "type": "git"
+                },
+                {
+                    "foreground": "blue",
+                    "properties": {
+                        "fetch_status": true
+                    },
+                    "style": "plain",
+                    "template": "{{ if .Working.Untracked }}?{{ .Working.Untracked }} {{ end }}",
+                    "type": "git"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "segments": [
+                {
+                    "type": "executiontime",
+                    "style": "plain",
+                    "foreground": "lightBlue",
+                    "template": " \ueba2 {{ .FormattedMs }}"
+                },
+                {
+                    "foreground": "66",
+                    "properties": {
+                        "time_format": "15:04:05"
+                    },
+                    "style": "plain",
+                    "template": " {{ .CurrentDate | date .Format }} ",
+                    "type": "time"
+                }
+            ],
+            "filler": "<darkGray>·",
+            "alignment": "right",
+            "type": "prompt"
+        },
+        {
+            "alignment": "left",
+            "newline": true,
+            "type": "prompt",
+            "segments": [
+                {
+                    "foreground": "darkGray",
+                    "style": "plain",
+                    "template": "╰─",
+                    "type": "text"
+                },
+                {
+                    "foreground": "green",
+                    "style": "plain",
+                    "template": "\u276f ",
+                    "type": "text"
+                }
+            ]
+        }
+    ],
+    "secondary_prompt": {
+        "template": "\u276f "
+    },
+    "version": 2
+}

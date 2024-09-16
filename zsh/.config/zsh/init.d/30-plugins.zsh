@@ -31,8 +31,6 @@ if ! zgenom saved; then
     zgenom load zsh-users/zsh-completions src
     zgenom load zsh-users/zsh-autosuggestions
 
-    zgenom load romkatv/powerlevel10k powerlevel10k
-
     zgenom save
     zgenom compile $ZDOTDIR
 fi
