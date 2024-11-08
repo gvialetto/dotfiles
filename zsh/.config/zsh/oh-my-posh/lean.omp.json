@@ -1,120 +1,131 @@
 {
-    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-    "blocks": [
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "secondary_prompt": {
+    "template": "❯ "
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
         {
-            "alignment": "left",
-            "newline": true,
-            "segments": [
-                {
-                    "foreground": "darkGray",
-                    "style": "plain",
-                    "template": "╭─ ",
-                    "type": "text"
-                },
-                {
-                    "foreground": "blue",
-                    "properties": {
-                        "style": "powerlevel",
-                        "max_width": 75
-                    },
-                    "style": "plain",
-                    "template": "<b>{{ .Path }}</b> ",
-                    "type": "path"
-                },
-                {
-                    "foreground": "green",
-                    "properties": {
-                        "fetch_status": true,
-                        "branch_icon": " "
-                    },
-                    "style": "plain",
-                    "template": "{{ .HEAD }} ",
-                    "type": "git"
-                },
-                {
-                    "foreground": "green",
-                    "properties": {
-                        "fetch_status": true,
-                        "branch_ahead_icon": "⇡"
-                    },
-                    "style": "plain",
-                    "template": "{{if .BranchStatus }}{{ .BranchStatus }} {{ end }}",
-                    "type": "git"
-                },
-                {
-                    "foreground": "yellow",
-                    "properties": {
-                        "fetch_status": true
-                    },
-                    "style": "plain",
-                    "template": "{{ if .Staging.Changed }}+{{ add .Staging.Added .Staging.Deleted .Staging.Modified }} {{ end }}",
-                    "type": "git"
-                },
-                {
-                    "foreground": "yellow",
-                    "properties": {
-                        "fetch_status": true
-                    },
-                    "style": "plain",
-                    "template": "{{ if .Working.Modified }}!{{ .Working.Modified }} {{ end }}",
-                    "type": "git"
-                },
-                {
-                    "foreground": "blue",
-                    "properties": {
-                        "fetch_status": true
-                    },
-                    "style": "plain",
-                    "template": "{{ if .Working.Untracked }}?{{ .Working.Untracked }} {{ end }}",
-                    "type": "git"
-                }
-            ],
-            "type": "prompt"
+          "template": "\u256d\u2500 ",
+          "foreground": "darkGray",
+          "type": "text",
+          "style": "plain"
         },
         {
-            "segments": [
-                {
-                    "type": "executiontime",
-                    "style": "plain",
-                    "foreground": "lightBlue",
-                    "template": " \ueba2 {{ .FormattedMs }}"
-                },
-                {
-                    "foreground": "66",
-                    "properties": {
-                        "time_format": "15:04:05"
-                    },
-                    "style": "plain",
-                    "template": " {{ .CurrentDate | date .Format }} ",
-                    "type": "time"
-                }
-            ],
-            "filler": "<darkGray>·",
-            "alignment": "right",
-            "type": "prompt"
+          "properties": {
+            "max_width": 75,
+            "style": "powerlevel"
+          },
+          "template": "<b>{{ .Path }}</b> ",
+          "foreground": "blue",
+          "type": "path",
+          "style": "plain"
         },
         {
-            "alignment": "left",
-            "newline": true,
-            "type": "prompt",
-            "segments": [
-                {
-                    "foreground": "darkGray",
-                    "style": "plain",
-                    "template": "╰─",
-                    "type": "text"
-                },
-                {
-                    "foreground": "green",
-                    "style": "plain",
-                    "template": "\u276f ",
-                    "type": "text"
-                }
-            ]
+          "properties": {
+            "branch_icon": "\ue0a0 ",
+            "fetch_status": true
+          },
+          "template": "{{ .HEAD }} ",
+          "foreground": "green",
+          "type": "git",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "branch_ahead_icon": "\u21e1",
+            "fetch_status": true
+          },
+          "template": "{{if .BranchStatus }}{{ .BranchStatus }} {{ end }}",
+          "foreground": "green",
+          "type": "git",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "fetch_status": true
+          },
+          "template": "{{ if .Staging.Changed }}+{{ add .Staging.Added .Staging.Deleted .Staging.Modified }} {{ end }}",
+          "foreground": "yellow",
+          "type": "git",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "fetch_status": true
+          },
+          "template": "{{ if .Working.Modified }}!{{ .Working.Modified }} {{ end }}",
+          "foreground": "yellow",
+          "type": "git",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "fetch_status": true
+          },
+          "template": "{{ if .Working.Untracked }}?{{ .Working.Untracked }} {{ end }}",
+          "foreground": "blue",
+          "type": "git",
+          "style": "plain"
         }
-    ],
-    "secondary_prompt": {
-        "template": "\u276f "
+      ],
+      "newline": true
     },
-    "version": 2
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "filler": "<darkGray>·",
+      "segments": [
+        {
+          "template": " \ueba2 {{ .FormattedMs }}",
+          "foreground": "lightBlue",
+          "type": "executiontime",
+          "style": "plain"
+        },
+        {
+          "type": "python",
+          "style": "plain",
+          "foreground": "yellow",
+          "properties": {
+            "home_enabled": true,
+            "fetch_version": false,
+            "display_default": false
+          },
+          "template": " \udb80\udf20 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }}{{ end }}{{ end }}"
+        },
+        {
+          "properties": {
+            "time_format": "15:04:05"
+          },
+          "template": " {{ .CurrentDate | date .Format }}",
+          "foreground": "66",
+          "type": "time",
+          "style": "plain"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "template": "\u2570\u2500",
+          "foreground": "darkGray",
+          "type": "text",
+          "style": "plain"
+        },
+        {
+          "template": "❯ ",
+          "foreground": "green",
+          "type": "text",
+          "style": "plain"
+        }
+      ],
+      "newline": true
+    }
+  ],
+  "version": 3
 }
